@@ -1,24 +1,9 @@
-import { AppBar, InputBase, Avatar, createTheme, ThemeProvider, InputAdornment } from '@mui/material';
+import { AppBar, InputBase, Avatar, ThemeProvider, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search'; // Importa el ícono de búsqueda
 
 
-const theme = createTheme({
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-            padding:"0px",
-            margin:"0px",
-          backgroundColor: '#4980cc',
-          display: 'flex',
-          alignItems: 'center',
-        },
-      },
-    },
-  },
-});
 
-const DrawerAppBar = () => {
+const DrawerAppBar = (theme) => {
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
