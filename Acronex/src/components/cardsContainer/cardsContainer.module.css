@@ -1,0 +1,14 @@
+.Center {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.CardsContainer {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}

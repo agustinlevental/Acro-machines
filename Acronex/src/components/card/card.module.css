@@ -1,0 +1,74 @@
+/* Card.module.css */
+.card {
+    width: 31%;
+    height: 40%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .statusAndName {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Alineación arriba a la izquierda */
+  }
+  
+  .status {
+    width: 25px; /* Ancho y alto iguales para un círculo */
+    height: 25px; /* Ancho y alto iguales para un círculo */
+    background-color: green;
+    border-radius: 50%; /* Hace que el elemento sea un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* Espacio entre el círculo y el otro contenido */
+  }
+  
+  .nameAndDetail {
+    width: calc(100% - 60px); /* El ancho del 100% menos el ancho del círculo y el margen */
+  }
+  
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .blue-text {
+    color: blue;
+  }
+  
+  .indicadores {
+    display: flex;
+    flex-direction: column; 
+    padding-left: 25px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between; /* Espaciado uniforme entre los rectángulos */
+  }
+  
+  .rectangle {
+    width: 50%; /* Ancho del rectángulo */
+    height: 75px; /* Altura del rectángulo */
+    display: flex;
+    flex-direction: column;
+    margin: 10px; /* Espacio entre los rectángulos */
+    background-color: lightgray; /* Color de fondo de los rectángulos (puedes ajustarlo según tus necesidades) */
+  }
+  
+  .indicadorName {
+    height: 20%; /* 10% de altura del contenedor padre */
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .indicadorValue {
+    height: 75%; /* 85% de altura del contenedor padre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
