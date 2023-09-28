@@ -1,9 +1,7 @@
 import {
-  CssBaseline,
-  ThemeProvider,
-  createTheme,
-  Container,
+  Container, ThemeProvider, createTheme,
 } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 import "./App.css";
 import store from "./redux/store";
 import { Provider } from "react-redux";
