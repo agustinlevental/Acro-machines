@@ -3,7 +3,11 @@ import SearchIcon from '@mui/icons-material/Search'; // Importa el ícono de bú
 
 
 
-const DrawerAppBar = (theme) => {
+const DrawerAppBar = ({theme,setSearchValue}) => {
+  const handleSearchChange = (event) => {
+    setSearchValue(event.target.value);
+   
+  };
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
@@ -27,6 +31,7 @@ const DrawerAppBar = (theme) => {
             <InputBase
               placeholder="Buscar..."
               fullWidth
+              onChange={handleSearchChange}
               sx={{
                 backgroundColor: 'white',
           

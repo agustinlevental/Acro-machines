@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 
 const Card = ({machine}) => {
@@ -47,11 +48,15 @@ const Card = ({machine}) => {
   
   
   return (
+
     <div className={styles.card}>
       <div className={styles.statusAndName}>
         <div className={`${styles.status} ${machine.moving==true?styles.moving:styles.stoped}`}></div>
         <div className={styles.nameAndDetail}>
-          <p>{`(${machine.id}) ${machine.description}`}</p>
+        Copy code
+<Link to={`/machines/${machine.id}`} state={{ id: machine.id }}>
+  <p>{`(${machine.id}) ${machine.description}`}</p>
+</Link>
           <p><span className={styles['blue-text']}>{`${machine.company}`}</span></p>
         </div>
       </div>
@@ -151,6 +156,7 @@ const Card = ({machine}) => {
          }
       </div>
     </div>
+   
   );
 };
 

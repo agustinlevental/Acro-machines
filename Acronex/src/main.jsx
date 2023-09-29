@@ -6,6 +6,7 @@ import './index.css';
 
 import DrawerAppBar from './components/drawer/DrawerAppBar.jsx';
 import CardsContainer from './components/CardsContainer/CardsContainer.jsx';
+import MachineDescription from './components/machineDescription/MachineDescription.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <DrawerAppBar /> },
       { path: '/machines', element: <CardsContainer /> },
+      { path: '/machines:id', element: <MachineDescription/> },
+      
     ],
   },
 ]);

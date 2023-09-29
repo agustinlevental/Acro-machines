@@ -2,11 +2,12 @@ import {
   Container, ThemeProvider, createTheme,
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import "./App.css";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import DrawerAppBar from "./components/drawer/DrawerAppBar";
 import CardsContainer from "./components/CardsContainer/CardsContainer";
+import { useState } from "react";
+import MachineDescription from "./components/machineDescription/MachineDescription";
 
 const theme = createTheme({
   components: {
@@ -34,13 +35,15 @@ const theme = createTheme({
 });
 
 function App() {
+  const [searchValue,setSearchValue] =useState("")
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container maxWidth="xl" sx={{ padding: "0px !important",backgroundColor:"#e4e4e4" }}>
-          <DrawerAppBar theme={theme} />
-          <CardsContainer />
+           <DrawerAppBar theme={theme} setSearchValue={setSearchValue} />
+          {/* <CardsContainer searchValue={searchValue}/> */}
+          <MachineDescription/>
         </Container>
       </ThemeProvider>
     </Provider>

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-const CardsContainer = () => {
+const CardsContainer = ({searchValue}) => {
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1); // Página actual, por defecto 1
@@ -33,6 +33,11 @@ const CardsContainer = () => {
     setPage(newPage);
   };
 
+  const filteredMachines = machines.filter((machine) =>
+    machine.description.toLowerCase().includes(searchValue.toLowerCase()) ||
+    machine.id==searchValue
+  );
+
   if (loading) {
     return <p>Cargando...</p>;
   }
@@ -44,14 +49,14 @@ const CardsContainer = () => {
   return (
     <div className={styles.Center}>
       <div className={styles.CardsContainer}>
-        {machines.slice(startIndex, endIndex).map((machine) => (
+        {filteredMachines.slice(startIndex, endIndex).map((machine) => (
           <Card key={machine.id} machine={machine} />
         ))}
       </div>
-      <div className={styles.PaginationContainer}> 
+      <div className={styles.PaginationContainer}>
         <Stack spacing={2} justifyContent="center">
           <Pagination
-            count={Math.ceil(machines.length / machinesPerPage)}
+            count={Math.ceil(filteredMachines.length / machinesPerPage)}
             page={page}
             onChange={handleChangePage}
           />

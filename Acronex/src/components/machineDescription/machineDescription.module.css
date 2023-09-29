@@ -1,0 +1,106 @@
+/* MachineDescription.module.css */
+
+.center {
+    display: flex;
+    justify-content: center;
+    height: 610px;
+    width: 100%;
+  }
+  
+  .machineContainer {
+    height: 500px;
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .titleAndNumber {
+    padding: 10px 10px;
+    border-bottom: 1px solid #e4e4e4;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .title {
+    align-self: flex-start;
+  }
+  
+  .number {
+    align-self: flex-end;
+  }
+  
+  .descriptionContainer {
+    height: auto;
+    display: flex;
+  }
+  
+  .leftInformation {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+  }
+  
+  .leftGraphics {
+    /* Estilos para leftGraphics */
+  }
+  
+  .indicadorName {
+    /* Estilos para indicadorName */
+  }
+  
+  .indicadorValue {
+    /* Estilos para indicadorValue */
+  }
+  
+  .leftSimpleInformation {
+    /* Estilos para leftSimpleInformation */
+  }
+  
+  .boldText {
+    font-weight: bold;
+  }
+  .textSeparation{
+    margin: 5px 0px
+  }
+
+  .blueText {
+    color: blue;
+  }
+  
+  .rigthInformation {
+    width: 60%;
+    padding-right: 10px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .tableTitle {
+    background-color: gray;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:hover {
+    background-color: #ddd;
+  }
+  

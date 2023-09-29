@@ -1,18 +1,17 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import DrawerAppBar from '../components/drawer/DrawerAppBar';
 import CardsContainer from '../components/CardsContainer/CardsContainer';
-
+import MachineDescription from '../components/MachineDescription/MachineDescription';
 
 function Navigator() {
   return (
     <div>
       <Routes>
-        <Route path="/machines" element={<DrawerAppBar />} />
-        <Route path="/machines" element={<CardsContainer />} />
-        <Route
-          path="/"
-          element={<Navigate to="/machines" replace={true} />}
-        />
+        <Route path="/machines" element={<DrawerAppBar />}>
+          <Route index element={<CardsContainer />} />
+          <Route path="/machines/:id" element={<MachineDescription />} />
+
+        </Route>
       </Routes>
     </div>
   );
