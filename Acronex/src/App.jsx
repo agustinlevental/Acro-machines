@@ -38,7 +38,7 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="xl" sx={{ padding: "0px !important" }}>
+        <Container maxWidth="xl" sx={{ padding: "0px !important",backgroundColor:"#e4e4e4" }}>
           <DrawerAppBar theme={theme} />
           <CardsContainer />
         </Container>

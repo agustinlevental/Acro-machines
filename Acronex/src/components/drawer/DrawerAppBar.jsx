@@ -20,7 +20,7 @@ const DrawerAppBar = (theme) => {
         >
           <div style={{width: '25%'}}>
       
-            <img src="URL_DE_LA_IMAGEN" alt="Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+            <img src="" alt="Logo" style={{ maxWidth: '100%', height: 'auto' }} />
           </div>
           <div style={{ height: '50px',flexGrow: 1, display: 'flex', justifyContent: 'center',  paddingTop: '10px',
                 paddingBottom: '10px' }}>

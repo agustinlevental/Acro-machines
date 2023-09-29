@@ -1,31 +1,38 @@
 /* Card.module.css */
 .card {
     width: 31%;
-    height: 40%;
+    height: 50%;
     margin: 10px;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
   }
   
   .statusAndName {
     display: flex;
     flex-direction: row;
-    align-items: flex-start; /* Alineación arriba a la izquierda */
+    align-items: flex-start; 
   }
   
   .status {
-    width: 25px; /* Ancho y alto iguales para un círculo */
-    height: 25px; /* Ancho y alto iguales para un círculo */
-    background-color: green;
-    border-radius: 50%; /* Hace que el elemento sea un círculo */
-    display: flex;
+    width: 25px; 
+    height: 25px;
+    /* background-color: green; */
+    border-radius: 50%;
     align-items: center;
     justify-content: center;
-    margin-right: 10px; /* Espacio entre el círculo y el otro contenido */
+    margin-right: 10px;
+  }
+
+  .moving {
+    background-color: #278e06;
+  }
+  .stoped{
+    background-color:#e13e5b;
   }
   
   .nameAndDetail {
-    width: calc(100% - 60px); /* El ancho del 100% menos el ancho del círculo y el margen */
+    width: calc(100% - 60px); 
   }
   
   p {
@@ -45,20 +52,47 @@
   
   .row {
     display: flex;
-    justify-content: space-between; /* Espaciado uniforme entre los rectángulos */
+    justify-content: space-between;
   }
   
   .rectangle {
-    width: 50%; /* Ancho del rectángulo */
-    height: 75px; /* Altura del rectángulo */
+    width: 50%; 
+    height: 75px;
     display: flex;
     flex-direction: column;
-    margin: 10px; /* Espacio entre los rectángulos */
-    background-color: lightgray; /* Color de fondo de los rectángulos (puedes ajustarlo según tus necesidades) */
+    margin: 10px; 
+    background-color: lightgray; 
+  }
+  .firstBreack {
+    background-color: #008000;
+  }
+  
+  .secondBreack {
+    background-color: #ffff00;
+  }
+  
+  .thirdBreack {
+    background-color: #ffa500;
+  }
+  
+  .fourthBreack {
+    background-color: #ff0000;
+  }
+  
+  .fifthBreack {
+    background-color: #8b0000;
+  }
+  
+  .sixthBreack {
+    background-color: #8b0000;
+  }
+
+  .regularBreack {
+    background-color: #e4e4e4;
   }
   
   .indicadorName {
-    height: 20%; /* 10% de altura del contenedor padre */
+    height: 20%; 
     margin-top: 5px;
     display: flex;
     align-items: center;
@@ -66,9 +100,11 @@
   }
   
   .indicadorValue {
-    height: 75%; /* 85% de altura del contenedor padre */
+    height: 75%; 
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
+ 
   
