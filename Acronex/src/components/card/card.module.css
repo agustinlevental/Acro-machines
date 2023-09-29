@@ -25,7 +25,7 @@
   }
 
   .moving {
-    background-color: #278e06;
+    background-color: #278e06 !important;
   }
   .stoped{
     background-color:#e13e5b;
@@ -39,7 +39,9 @@
     margin: 0px;
     padding: 0px;
   }
-  
+  .valueBold{
+    font-weight: bold;
+  }
   .blue-text {
     color: blue;
   }
@@ -90,7 +92,11 @@
   .regularBreack {
     background-color: #e4e4e4;
   }
-  
+
+  .rindeSeco{
+    background-color: #B3D838 !important;
+  }
+ 
   .indicadorName {
     height: 20%; 
     margin-top: 5px;

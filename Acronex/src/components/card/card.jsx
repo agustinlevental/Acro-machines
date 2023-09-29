@@ -8,7 +8,8 @@ const Card = ({machine}) => {
   const fifthBreack=0.5;
   const sixthBreack=1.0;
 
-const calidad = (1-machine.indicadores.calidad)*100 ;
+  const calidad = Math.floor((1 - machine.indicadores.calidad) * 100);
+
 
   const getClassByValue = (value) => {
     switch (true) {
@@ -25,24 +26,26 @@ const calidad = (1-machine.indicadores.calidad)*100 ;
       case value > fifthBreack && value <= sixthBreack:
         return styles.sixthBreack;
       default:
-        return ''; // Si no coincide con ninguno, devuelve una cadena vacía
+        return ''; 
     }
   };
   const getClassForCalidad = (calidad) => {
-console.log(calidad, "la calidad")
+    console.log(calidad, "la calidad")
     switch (true) {
-      case calidad < 50:
-        return styles.sixthBreack;
-      case calidad > 50 && calidad < 80:
-        return styles.regularBreack;
-      case calidad > 80 && calidad < 95:
-        return styles.moving;
       case calidad === 100:
         return styles.firstBreack;
+      case calidad > 80 && calidad < 95:
+        return styles.moving;
+      case calidad > 50 && calidad < 80:
+        return styles.regularBreack;
+      case calidad < 50:
+        return styles.sixthBreack;
       default:
         return ''; 
     }
   };
+  
+  
   return (
     <div className={styles.card}>
       <div className={styles.statusAndName}>
@@ -53,26 +56,27 @@ console.log(calidad, "la calidad")
         </div>
       </div>
       <div className={styles.indicadores}>
-   
+      {machine.type==="Pulverizadora"?(
+        <div>
         <div className={styles.row}>
-        {machine.type==="Pulverizadora"?(
+      
           <div className={`${styles.rectangle} ${getClassByValue(machine.indicadores.taponamiento)}`}>
         
             <div className={styles.indicadorName}>
               <p>Taponamiento</p>
             </div>
             <div className={styles.indicadorValue}>
-              <p>{machine.indicadores.taponamiento} %</p>
+            <p className={styles.valueBold}>{machine.indicadores.taponamiento} %</p>
             </div>
 
           </div>
-          ):null}
+         
          <div className={`${styles.rectangle} ${getClassByValue(machine.indicadores.evaporacion)}`}>
             <div className={styles.indicadorName}>
               <p>Evaporación</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p>{machine.indicadores.evaporacion} %</p>
+            <p className={styles.valueBold}>{machine.indicadores.evaporacion} %</p>
             </div>
           </div>
         </div>
@@ -82,7 +86,7 @@ console.log(calidad, "la calidad")
             <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Perdida p. viento</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p>{machine.indicadores.deriva} %</p>
+            <p className={styles.valueBold}>{machine.indicadores.deriva} %</p>
             </div>
           </div>
           <div className={`${styles.rectangle} ${getClassForCalidad(calidad)}`}>
@@ -90,10 +94,61 @@ console.log(calidad, "la calidad")
               <p>Calidad</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p>{calidad} %</p>
+            <p className={styles.valueBold}>{calidad} %</p>
             </div>
           </div>
         </div>
+         </div>):
+         
+         
+         
+         <div> 
+         <div className={styles.row}>
+      
+         <div className={`${styles.rectangle} `}>
+       
+           <div className={styles.indicadorName}>
+             <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Tipo de cultivo</p>
+           </div>
+           <div className={styles.indicadorValue}>
+             <p className={styles.valueBold}>{machine.indicadores.cultivo}</p>
+           </div>
+
+         </div>
+        
+        <div className={`${styles.rectangle} `}>
+           <div className={styles.indicadorName}>
+             <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Humedad grano</p>
+           </div>
+           <div className={styles.indicadorValue}>
+           <p className={styles.valueBold}>{machine.indicadores.humedad_grano} %</p>
+           </div>
+         </div>
+       </div>
+       <div className={styles.row}>
+       <div className={`${styles.rectangle} ${styles.moving}`}>
+           <div className={styles.indicadorName}>
+           <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Rinde húmedo</p>
+           </div>
+           <div className={styles.indicadorValue}>
+           <p className={styles.valueBold}>{machine.indicadores.rinde_humedo} </p>
+           </div>
+         </div>
+         <div className={`${styles.rectangle} ${styles.rindeSeco} `}>
+           <div className={styles.indicadorName}>
+           <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Rinde seco</p>
+           </div>
+           <div className={styles.indicadorValue}>
+           <p className={styles.valueBold}>{machine.indicadores.rinde_humedo}</p>
+           </div>
+         </div>
+       </div>
+       </div>
+         
+         
+         
+         
+         }
       </div>
     </div>
   );
