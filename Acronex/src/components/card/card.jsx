@@ -1,7 +1,48 @@
 import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
+const firstBreack= 0.0;
+  const secondBreack =0.1;
+  const thirdBreack=0.2;
+  const fourthBreack=0.35;
+  const fifthBreack=0.5;
+  const sixthBreack=1.0;
+  
+export const getClassByValue = (value) => {
+  switch (true) {
+    case value === firstBreack:
+      return styles.firstBreack;
+    case value > firstBreack && value <= secondBreack:
+      return styles.secondBreack;
+    case value > secondBreack && value <= thirdBreack:
+      return styles.thirdBreack;
+    case value > thirdBreack && value <= fourthBreack:
+      return styles.fourthBreack;
+    case value > fourthBreack && value <= fifthBreack:
+      return styles.fifthBreack;
+    case value > fifthBreack && value <= sixthBreack:
+      return styles.sixthBreack;
+    default:
+      return ''; 
+  }
+};
 
+export const getClassForCalidad = (calidad) => {
+
+  switch (true) {
+    case calidad === 100:
+      return styles.firstBreack;
+    case calidad > 80 && calidad < 95:
+      return styles.moving;
+    case calidad > 50 && calidad < 80:
+      return styles.regularBreack;
+    case calidad < 50:
+      return styles.sixthBreack;
+    default:
+      return ''; 
+  }
+};
 const Card = ({machine}) => {
+  
   const firstBreack= 0.0;
   const secondBreack =0.1;
   const thirdBreack=0.2;
@@ -12,39 +53,8 @@ const Card = ({machine}) => {
   const calidad = Math.floor((1 - machine.indicadores.calidad) * 100);
 
 
-  const getClassByValue = (value) => {
-    switch (true) {
-      case value === firstBreack:
-        return styles.firstBreack;
-      case value > firstBreack && value <= secondBreack:
-        return styles.secondBreack;
-      case value > secondBreack && value <= thirdBreack:
-        return styles.thirdBreack;
-      case value > thirdBreack && value <= fourthBreack:
-        return styles.fourthBreack;
-      case value > fourthBreack && value <= fifthBreack:
-        return styles.fifthBreack;
-      case value > fifthBreack && value <= sixthBreack:
-        return styles.sixthBreack;
-      default:
-        return ''; 
-    }
-  };
-  const getClassForCalidad = (calidad) => {
-    console.log(calidad, "la calidad")
-    switch (true) {
-      case calidad === 100:
-        return styles.firstBreack;
-      case calidad > 80 && calidad < 95:
-        return styles.moving;
-      case calidad > 50 && calidad < 80:
-        return styles.regularBreack;
-      case calidad < 50:
-        return styles.sixthBreack;
-      default:
-        return ''; 
-    }
-  };
+ 
+  
   
   
   return (
@@ -104,9 +114,6 @@ const Card = ({machine}) => {
           </div>
         </div>
          </div>):
-         
-         
-         
          <div> 
          <div className={styles.row}>
       
@@ -149,10 +156,7 @@ const Card = ({machine}) => {
          </div>
        </div>
        </div>
-         
-         
-         
-         
+      
          }
       </div>
     </div>
@@ -161,3 +165,4 @@ const Card = ({machine}) => {
 };
 
 export default Card;
+

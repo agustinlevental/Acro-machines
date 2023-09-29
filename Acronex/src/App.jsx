@@ -42,8 +42,8 @@ function App() {
         <CssBaseline />
         <Container maxWidth="xl" sx={{ padding: "0px !important",backgroundColor:"#e4e4e4" }}>
            <DrawerAppBar theme={theme} setSearchValue={setSearchValue} />
-          {/* <CardsContainer searchValue={searchValue}/> */}
-          <MachineDescription/>
+          <CardsContainer searchValue={searchValue}/>
+          {/* <MachineDescription/> */}
         </Container>
       </ThemeProvider>
     </Provider>

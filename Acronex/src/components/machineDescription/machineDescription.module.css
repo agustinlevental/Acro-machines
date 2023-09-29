@@ -1,21 +1,26 @@
 /* MachineDescription.module.css */
 
 .center {
-    display: flex;
-    justify-content: center;
-    height: 610px;
-    width: 100%;
-  }
-  
-  .machineContainer {
-    height: 500px;
-    width: 50%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
+  display: flex;
+  justify-content: center;
+  height: 610px;
+  width: 100%;
+  overflow-y: auto; /* Agrega esta línea para el scroll vertical */
+}
+.machineContainer {
+  min-height: 500px; /* Ajusta según tus necesidades */
+  width: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.indicadores {
+  width: 90%;
+  display: flex;
+  flex-direction: column; 
+}
   
   .titleAndNumber {
     padding: 10px 10px;
@@ -35,9 +40,11 @@
   }
   
   .descriptionContainer {
-    height: auto;
     display: flex;
+    overflow: hidden; /* Cambia a "hidden" para ocultar el desbordamiento horizontal */
+    height: 100%;
   }
+  
   
   .leftInformation {
     width: 40%;
@@ -45,7 +52,14 @@
     flex-direction: column;
     padding-left: 10px;
   }
-  
+  .rectangle {
+    width: 150px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background-color: lightgray;
+}
   .leftGraphics {
     /* Estilos para leftGraphics */
   }
@@ -61,7 +75,10 @@
   .leftSimpleInformation {
     /* Estilos para leftSimpleInformation */
   }
-  
+  .textoPequeño{
+   font-size: '12px';
+    white-space: 'nowrap' ;
+  }
   .boldText {
     font-weight: bold;
   }
@@ -76,6 +93,8 @@
   .rigthInformation {
     width: 60%;
     padding-right: 10px;
+    height: 100%;
+    overflow-y: auto; /* Agrega esta línea para la barra de desplazamiento vertical */
   }
   
   .table {

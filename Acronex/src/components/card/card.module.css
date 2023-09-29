@@ -66,31 +66,31 @@
     background-color: lightgray; 
   }
   .firstBreack {
-    background-color: #008000;
+    background-color: #008000 !important;
   }
   
   .secondBreack {
-    background-color: #ffff00;
+    background-color: #ffff00  !important;
   }
   
   .thirdBreack {
-    background-color: #ffa500;
+    background-color: #ffa500  !important;
   }
   
   .fourthBreack {
-    background-color: #ff0000;
+    background-color: #ff0000  !important;
   }
   
   .fifthBreack {
-    background-color: #8b0000;
+    background-color: #8b0000  !important;
   }
   
   .sixthBreack {
-    background-color: #8b0000;
+    background-color: #8b0000  !important;
   }
 
   .regularBreack {
-    background-color: #e4e4e4;
+    background-color: #e4e4e4  !important;
   }
 
   .rindeSeco{
