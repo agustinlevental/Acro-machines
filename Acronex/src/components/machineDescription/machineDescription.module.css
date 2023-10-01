@@ -63,13 +63,20 @@ body {
     padding-left: 10px;
   }
   .rectangle {
-    width: 150px;
+    width: 50%;
     height: 75px;
     display: flex;
     flex-direction: column;
     margin: 10px;
     background-color: lightgray;
-}
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .rectangle:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
   .leftGraphics {
 
   }
