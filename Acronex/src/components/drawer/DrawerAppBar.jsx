@@ -22,9 +22,13 @@ const DrawerAppBar = ({theme,setSearchValue}) => {
             padding:"0px 20px"
           }}
         >
-          <div style={{width: '25%'}}>
-      
-            <img src="" alt="Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+          <div style={{width: '25%', display:"flex",alignItems:"center" ,marginTop:"6px"}}>
+            <div>
+          <img src="./logo.png" alt="Logo" style={{ width:"auto", height: '25px' }} />
+          </div>
+          <div style={{paddingTop: '2px'}}>
+            <img src="./unimap.svg" alt="Logo" style={{ width:"auto", height: '30px' }} />
+            </div>
           </div>
           <div style={{ height: '50px',flexGrow: 1, display: 'flex', justifyContent: 'center',  paddingTop: '10px',
                 paddingBottom: '10px' }}>
@@ -59,6 +63,8 @@ const DrawerAppBar = ({theme,setSearchValue}) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:"white",
+    color:"black"
   }}
 >
   NN

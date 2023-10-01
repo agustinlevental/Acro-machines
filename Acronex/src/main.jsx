@@ -2,22 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-
-import DrawerAppBar from './components/drawer/DrawerAppBar.jsx';
-import CardsContainer from './components/CardsContainer/CardsContainer.jsx';
 import MachineDescription from './components/machineDescription/MachineDescription.jsx';
+
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
-    children: [
-      { index: true, element: <DrawerAppBar /> },
-      { path: '/machines', element: <CardsContainer /> },
-      { path: '/machines:id', element: <MachineDescription/> },
-      
-    ],
+  },
+  {
+    path: "/machines",
+    element: <App />,
+  },
+  {
+    path: "machines/:id",
+    element: <MachineDescription />,
   },
 ]);
 

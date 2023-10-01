@@ -9,7 +9,8 @@ function Navigator() {
       <Routes>
         <Route path="/machines" element={<DrawerAppBar />}>
           <Route index element={<CardsContainer />} />
-          <Route path="/machines/:id" element={<MachineDescription />} />
+          <Route path="/machines/:id" component={<MachineDescription/>} />
+
 
         </Route>
       </Routes>

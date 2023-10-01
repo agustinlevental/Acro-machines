@@ -1,14 +1,20 @@
 /* MachineDescription.module.css */
 
+body {
+  margin: 0;
+  padding: 0;
+}
 .center {
   display: flex;
   justify-content: center;
   height: 610px;
   width: 100%;
-  overflow-y: auto; /* Agrega esta línea para el scroll vertical */
+  background-color: #e4e4e4;
+  overflow-y: auto; 
 }
 .machineContainer {
-  min-height: 500px; /* Ajusta según tus necesidades */
+  height: 90%;
+  min-height: 500px;
   width: 50%;
   background-color: white;
   display: flex;
@@ -23,20 +29,24 @@
 }
   
   .titleAndNumber {
-    padding: 10px 10px;
+    padding: 0px 21px;
     border-bottom: 1px solid #e4e4e4;
     height: 10%;
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
-  
+  p{
+    font-family: sans-serif;
+    /* font-size: 12px; */
+  }
   .title {
-    align-self: flex-start;
+
   }
   
   .number {
-    align-self: flex-end;
+    padding: 0px 15px 0px 0px;
   }
   
   .descriptionContainer {
@@ -61,19 +71,19 @@
     background-color: lightgray;
 }
   .leftGraphics {
-    /* Estilos para leftGraphics */
+
   }
   
   .indicadorName {
-    /* Estilos para indicadorName */
+
   }
   
   .indicadorValue {
-    /* Estilos para indicadorValue */
+  
   }
   
   .leftSimpleInformation {
-    /* Estilos para leftSimpleInformation */
+padding-left: 10px;
   }
   .textoPequeño{
    font-size: '12px';
@@ -82,37 +92,50 @@
   .boldText {
     font-weight: bold;
   }
+  .textModule{
+    margin: 15px 0px;
+  }
   .textSeparation{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     margin: 5px 0px
   }
 
   .blueText {
-    color: blue;
+    color: #4980cc;
   }
   
   .rigthInformation {
     width: 60%;
     padding-right: 10px;
     height: 100%;
-    overflow-y: auto; /* Agrega esta línea para la barra de desplazamiento vertical */
+    overflow-y: auto;
   }
   
   .table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    table-layout: fixed; 
+  }
+  .lastTable {
+    margin-bottom: 20px;
+  }
+
+  .table th,
+  .table td {
+    width: 50%;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
   }
   
+
   .tableTitle {
     background-color: gray;
     text-align: center;
     font-weight: bold;
-  }
-  
-  .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
   }
   
   .table tr:nth-child(even) {

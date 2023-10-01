@@ -52,20 +52,17 @@ const Card = ({machine}) => {
 
   const calidad = Math.floor((1 - machine.indicadores.calidad) * 100);
 
-
- 
-  
-  
-  
   return (
 
     <div className={styles.card}>
       <div className={styles.statusAndName}>
+        <div style={{display:"flex",alignItems: "center",justifyContent: "center"}}>
         <div className={`${styles.status} ${machine.moving==true?styles.moving:styles.stoped}`}></div>
+        </div>
         <div className={styles.nameAndDetail}>
-        Copy code
-<Link to={`/machines/${machine.id}`} state={{ id: machine.id }}>
-  <p>{`(${machine.id}) ${machine.description}`}</p>
+    
+<Link to={`/machines/${machine.id}`} state={{ id: machine.id }}   style={{ textDecoration: 'none', color: 'black' }}>
+  <p className={`${styles.truncateText}`}>{`(${machine.id}) ${machine.description}`}</p>
 </Link>
           <p><span className={styles['blue-text']}>{`${machine.company}`}</span></p>
         </div>
@@ -78,38 +75,38 @@ const Card = ({machine}) => {
           <div className={`${styles.rectangle} ${getClassByValue(machine.indicadores.taponamiento)}`}>
         
             <div className={styles.indicadorName}>
-              <p>Taponamiento</p>
+              <p className={styles.cardTitle}>Taponamiento</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p className={styles.valueBold}>{machine.indicadores.taponamiento} %</p>
+            <p className={styles.valueBold}>{Math.floor(machine.indicadores.taponamiento*100)} %</p>
             </div>
 
           </div>
          
          <div className={`${styles.rectangle} ${getClassByValue(machine.indicadores.evaporacion)}`}>
             <div className={styles.indicadorName}>
-              <p>Evaporación</p>
+              <p className={styles.cardTitle}>Evaporación</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p className={styles.valueBold}>{machine.indicadores.evaporacion} %</p>
+            <p className={styles.valueBold}>{Math.floor(machine.indicadores.evaporacion*100)} %</p>
             </div>
           </div>
         </div>
         <div className={styles.row}>
         <div className={`${styles.rectangle} ${getClassByValue(machine.indicadores.deriva)}`}>
             <div className={styles.indicadorName}>
-            <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Perdida p. viento</p>
+            <p className={styles.cardTitle} >Perdida p. viento</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p className={styles.valueBold}>{machine.indicadores.deriva} %</p>
+            <p className={styles.valueBold}>{Math.floor(machine.indicadores.deriva*100)} %</p>
             </div>
           </div>
           <div className={`${styles.rectangle} ${getClassForCalidad(calidad)}`}>
             <div className={styles.indicadorName}>
-              <p>Calidad</p>
+              <p className={`${styles.cardTitle} ${calidad < 100 ? styles.blackCalidad : ""}`}>Calidad</p>
             </div>
             <div className={styles.indicadorValue}>
-            <p className={styles.valueBold}>{calidad} %</p>
+            <p className={`${styles.valueBold} ${calidad < 100 ? styles.blackCalidad : ""}`}>{calidad} %</p>
             </div>
           </div>
         </div>
@@ -120,27 +117,27 @@ const Card = ({machine}) => {
          <div className={`${styles.rectangle} `}>
        
            <div className={styles.indicadorName}>
-             <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Tipo de cultivo</p>
+             <p className={styles.cardTitleCosechadora}>Tipo de cultivo</p>
            </div>
            <div className={styles.indicadorValue}>
-             <p className={styles.valueBold}>{machine.indicadores.cultivo}</p>
+             <p className={styles.valueBoldCosechadora}>{machine.indicadores.cultivo}</p>
            </div>
 
          </div>
         
         <div className={`${styles.rectangle} `}>
            <div className={styles.indicadorName}>
-             <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Humedad grano</p>
+             <p className={styles.cardTitleCosechadora}>Humedad grano</p>
            </div>
            <div className={styles.indicadorValue}>
-           <p className={styles.valueBold}>{machine.indicadores.humedad_grano} %</p>
+           <p className={styles.valueBoldCosechadora}>{machine.indicadores.humedad_grano} %</p>
            </div>
          </div>
        </div>
        <div className={styles.row}>
        <div className={`${styles.rectangle} ${styles.moving}`}>
            <div className={styles.indicadorName}>
-           <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Rinde húmedo</p>
+           <p className={styles.cardTitle}>Rinde húmedo</p>
            </div>
            <div className={styles.indicadorValue}>
            <p className={styles.valueBold}>{machine.indicadores.rinde_humedo} </p>
@@ -148,10 +145,10 @@ const Card = ({machine}) => {
          </div>
          <div className={`${styles.rectangle} ${styles.rindeSeco} `}>
            <div className={styles.indicadorName}>
-           <p style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>Rinde seco</p>
+           <p className={styles.cardTitleCosechadora}>Rinde seco</p>
            </div>
            <div className={styles.indicadorValue}>
-           <p className={styles.valueBold}>{machine.indicadores.rinde_humedo}</p>
+           <p className={styles.valueBoldCosechadora}>{machine.indicadores.rinde_humedo}</p>
            </div>
          </div>
        </div>

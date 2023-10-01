@@ -11,7 +11,7 @@
   .statusAndName {
     display: flex;
     flex-direction: row;
-    align-items: flex-start; 
+    align-items: center; 
   }
   
   .status {
@@ -21,7 +21,7 @@
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    margin: 0px 5px;
   }
 
   .moving {
@@ -33,22 +33,57 @@
   
   .nameAndDetail {
     width: calc(100% - 60px); 
+    margin-left: 5px;
   }
   
   p {
     margin: 0px;
     padding: 0px;
   }
+  .cardTitle {
+    font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  .cardTitleCosechadora{
+       font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+    color: black; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
   .valueBold{
     font-weight: bold;
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
+  .valueBoldCosechadora{
+    font-weight: bold;
+    color: black; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  .blackCalidad{
+    color: black;
+  }
+  .truncateText{
+    white-space: nowrap; 
+  overflow: hidden;    
+  text-overflow: ellipsis; 
+  max-width: 100%; 
+  }
+  
   .blue-text {
     color: blue;
   }
   
   .indicadores {
+    width:95%;
     display: flex;
     flex-direction: column; 
+    margin-bottom: 10px;
+    margin-left: 5px;
     padding-left: 25px;
   }
   
