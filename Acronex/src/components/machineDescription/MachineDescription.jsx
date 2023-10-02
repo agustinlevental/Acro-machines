@@ -105,7 +105,7 @@ const MachineDescription = () => {
             <p>{data.description}</p>
           </div>
           <div className={styles.number}>
-            <p style={{ color: "#706f6f" }}>383</p>
+            <p style={{ color: "#706f6f" }}>{data.chassis}</p>
           </div>
         </div>
         {data ? (

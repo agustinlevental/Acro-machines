@@ -50,7 +50,7 @@ const Card = ({machine}) => {
   const fifthBreack=0.5;
   const sixthBreack=1.0;
 
-  const calidad = Math.floor((1 - machine.indicadores.calidad) * 100);
+  const calidad = Math.floor((1 - machine?.indicadores?.calidad) * 100);
 
   return (
 
@@ -120,7 +120,7 @@ const Card = ({machine}) => {
              <p className={styles.cardTitleCosechadora}>Tipo de cultivo</p>
            </div>
            <div className={styles.indicadorValue}>
-             <p className={styles.valueBoldCosechadora}>{machine.indicadores.cultivo}</p>
+             <p className={styles.valueBoldCosechadora}>{machine?.indicadores?.cultivo}</p>
            </div>
 
          </div>
@@ -130,7 +130,7 @@ const Card = ({machine}) => {
              <p className={styles.cardTitleCosechadora}>Humedad grano</p>
            </div>
            <div className={styles.indicadorValue}>
-           <p className={styles.valueBoldCosechadora}>{machine.indicadores.humedad_grano} %</p>
+           <p className={styles.valueBoldCosechadora}>{machine?.indicadores?.humedad_grano} %</p>
            </div>
          </div>
        </div>
@@ -140,7 +140,7 @@ const Card = ({machine}) => {
            <p className={styles.cardTitle}>Rinde húmedo</p>
            </div>
            <div className={styles.indicadorValue}>
-           <p className={styles.valueBold}>{machine.indicadores.rinde_humedo} </p>
+           <p className={styles.valueBold}>{machine?.indicadores?.rinde_humedo} </p>
            </div>
          </div>
          <div className={`${styles.rectangle} ${styles.rindeSeco} `}>
@@ -148,7 +148,7 @@ const Card = ({machine}) => {
            <p className={styles.cardTitleCosechadora}>Rinde seco</p>
            </div>
            <div className={styles.indicadorValue}>
-           <p className={styles.valueBoldCosechadora}>{machine.indicadores.rinde_humedo}</p>
+           <p className={styles.valueBoldCosechadora}>{machine?.indicadores?.rinde_humedo}</p>
            </div>
          </div>
        </div>

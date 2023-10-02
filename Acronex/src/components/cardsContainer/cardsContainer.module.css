@@ -1,3 +1,5 @@
+/* CardsContainer.module.css */
+
 .Center {
   display: flex;
   flex-direction: column;
@@ -8,20 +10,41 @@
   width: 100%;
   background-color: #e4e4e4;
 }
-.CardsContainer {
+
+.CardsAndPaginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   height: 100%;
-  display: flex;
-  justify-content: center;
   margin-top: 20px;
-  flex-wrap: wrap;
-
 }
-.PaginationContainer {
-  height: 17%;
+
+.CardsContainer {
+  flex: 1; /* Las tarjetas ocuparán el espacio restante verticalmente */
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
-
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas */
+  justify-content:center; /* Espacio uniforme entre las tarjetas */
+  max-width: 1000px; /* Ancho máximo del contenedor de las tarjetas */
+  margin: 0 auto; /* Centra el contenedor de las tarjetas horizontalmente */
 }
 
+.PaginationContainer {
+  height: auto; /* Altura automática para adaptarse al contenido */
+  display: flex;
+  align-items: center; /* Alinea los botones verticalmente en el centro */
+  margin: 20px 0;
+}
+
+button {
+  background-color: transparent; /* Fondo transparente para los botones */
+  border: none; /* Sin bordes en los botones */
+  cursor: pointer;
+  font-size: 24px; /* Tamaño de fuente de los íconos */
+  margin: 0 10px; /* Espacio entre los botones y las tarjetas */
+}
+
+button:disabled {
+  cursor: not-allowed; /* Cambia el cursor cuando el botón está deshabilitado */
+  opacity: 0.5; /* Reduce la opacidad de los botones deshabilitados */
+}
