@@ -1,22 +1,18 @@
 import styles from "./MachineDescription.module.css";
 import cardStyles from "../card/card.module.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { format } from "date-fns";
 import { getClassByValue, getClassForCalidad } from "../card/card";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const MachineDescription = () => {
   const { id } = useParams();
   const [data, setData] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
   const [calidad, setCalidad] = useState(0);
-  const firstBreack = 0.0;
-  const secondBreack = 0.1;
-  const thirdBreack = 0.2;
-  const fourthBreack = 0.35;
-  const fifthBreack = 0.5;
-  const sixthBreack = 1.0;
+
 
   useEffect(() => {
     if (id) {
@@ -30,8 +26,7 @@ const MachineDescription = () => {
           console.log(responseData, "la data");
       
 
-          // Realiza las operaciones con la data aquí
-          // ...
+       
         } catch (error) {
           console.error("Error al obtener los datos:", error);
         }
@@ -47,8 +42,8 @@ const MachineDescription = () => {
       setCalidad(calidad);
 
       const formattedDateTime = format(
-        new Date(data.last_update), // Convierte la fecha de string a objeto Date
-        "dd/MM/yyyy HH:mm" // Define el formato deseado
+        new Date(data.last_update), 
+        "dd/MM/yyyy HH:mm" 
       );
       setFormattedDate(formattedDateTime);
 
@@ -59,47 +54,19 @@ const MachineDescription = () => {
   });
 
   if (!id) {
-    // Si id aún no está definido, muestra "Cargando..."
+    
     return <p>no carga el id...</p>;
   }
 
-  const getClassByValue = (value) => {
-    switch (true) {
-      case value === firstBreack:
-        return cardStyles.firstBreack;
-      case value > firstBreack && value <= secondBreack:
-        return cardStyles.secondBreack;
-      case value > secondBreack && value <= thirdBreack:
-        return cardStyles.thirdBreack;
-      case value > thirdBreack && value <= fourthBreack:
-        return cardStyles.fourthBreack;
-      case value > fourthBreack && value <= fifthBreack:
-        return cardStyles.fifthBreack;
-      case value > fifthBreack && value <= sixthBreack:
-        return cardStyles.sixthBreack;
-      default:
-        return "";
-    }
-  };
-  const getClassForCalidad = (calidad) => {
-    console.log(calidad, "entro la calidad");
-    switch (true) {
-      case calidad === 100:
-        return cardStyles.firstBreack;
-      case calidad > 80 && calidad < 95:
-        return cardStyles.moving;
-      case calidad > 50 && calidad < 80:
-        return cardStyles.regularBreack;
-      case calidad < 50:
-        return cardStyles.sixthBreack;
-      default:
-        return "";
-    }
-  };
+
 
   return (
     <div className={styles.center}>
+ <Link to="/machines" className={styles.goBackLink}>
+          <ArrowBackIcon sx={{width:15 , height:15 }} /> Volver
+        </Link>
       <div className={styles.machineContainer}>
+      
         <div className={styles.titleAndNumber}>
           <div className={styles.title}>
             <p>{data.description}</p>
@@ -315,10 +282,7 @@ const MachineDescription = () => {
                     <td>Batería vehículo</td>
                     <td>{data.data.general["batería vehiculo"]}</td>
                   </tr>
-                  {/* <tr>
-                    <td>Uso combustible</td>
-                    <td>Dato no encontrado en la API</td>
-                  </tr> */}
+             
                 </tbody>
              
               </table>

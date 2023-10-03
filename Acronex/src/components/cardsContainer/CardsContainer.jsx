@@ -10,7 +10,6 @@ const CardsContainer = ({ searchValue }) => {
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1); 
-  const [fetchedData, setFetchedData] = useState([])
   const machinesPerPage = 6; 
 
   useEffect(() => {

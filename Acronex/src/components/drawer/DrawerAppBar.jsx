@@ -1,7 +1,5 @@
 import { AppBar, InputBase, Avatar, ThemeProvider, InputAdornment } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search'; // Importa el ícono de búsqueda
-
-
+import SearchIcon from '@mui/icons-material/Search'; 
 
 const DrawerAppBar = ({theme,setSearchValue}) => {
   const handleSearchChange = (event) => {

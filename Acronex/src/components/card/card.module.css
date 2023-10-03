@@ -1,4 +1,4 @@
-/* Card.module.css */
+
 .card {
     width: 31%;
     height: 50%;
@@ -17,7 +17,6 @@
   .status {
     width: 25px; 
     height: 25px;
-    /* background-color: green; */
     border-radius: 50%;
     align-items: center;
     justify-content: center;

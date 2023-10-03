@@ -86,7 +86,7 @@ const Card = ({ machine }) => {
                     <p className={styles.cardTitle}>Taponamiento</p>
                   </div>
                   <div className={styles.indicadorValue}>
-                    <p className={styles.valueBold}>{Math.floor((machineItem?.indicadores?.taponamiento || machineItem.data?.indicadores?.taponamiento) * 100)} %</p>
+                    <p className={styles.valueBold}>{Math.floor((Math.abs(machineItem?.indicadores?.taponamiento || machineItem.data?.indicadores?.taponamiento)) * 100)} %</p>
                   </div>
                 </div>
                 <div className={`${styles.rectangle} ${getClassByValue(machineItem?.indicadores?.evaporacion || machineItem.data?.indicadores?.evaporacion)} `}>
@@ -107,7 +107,7 @@ const Card = ({ machine }) => {
                     <p className={styles.cardTitle}>Perdida p. viento</p>
                   </div>
                   <div className={styles.indicadorValue}>
-                    <p className={styles.valueBold}>{Math.floor((machineItem?.indicadores?.deriva || machineItem.data?.indicadores?.deriva) * 100)} %</p>
+                    <p className={styles.valueBold}>{Math.floor((Math.abs(machineItem?.indicadores?.deriva || machineItem.data?.indicadores?.deriva)) * 100)} %</p>
                   </div>
                 </div>
                 <div className={`${styles.rectangle} ${getClassForCalidad((1 - machineItem?.indicadores?.calidad||machineItem.data?.indicadores?.calidad) * 100)}`}>

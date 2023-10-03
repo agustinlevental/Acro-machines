@@ -1,5 +1,3 @@
-/* CardsContainer.module.css */
-
 .Center {
   display: flex;
   flex-direction: column;
@@ -21,30 +19,30 @@
 }
 
 .CardsContainer {
-  flex: 1; /* Las tarjetas ocuparán el espacio restante verticalmente */
+  flex: 1; 
   display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas */
-  justify-content:center; /* Espacio uniforme entre las tarjetas */
-  max-width: 1000px; /* Ancho máximo del contenedor de las tarjetas */
-  margin: 0 auto; /* Centra el contenedor de las tarjetas horizontalmente */
+  flex-wrap: wrap; 
+  justify-content:center;
+  max-width: 1000px; 
+  margin: 0 auto; 
 }
 
 .PaginationContainer {
-  height: auto; /* Altura automática para adaptarse al contenido */
+  height: auto;
   display: flex;
-  align-items: center; /* Alinea los botones verticalmente en el centro */
+  align-items: center; 
   margin: 20px 0;
 }
 
 button {
-  background-color: transparent; /* Fondo transparente para los botones */
-  border: none; /* Sin bordes en los botones */
+  background-color: transparent; 
+  border: none;
   cursor: pointer;
-  font-size: 24px; /* Tamaño de fuente de los íconos */
-  margin: 0 10px; /* Espacio entre los botones y las tarjetas */
+  font-size: 24px; 
+  margin: 0 10px;
 }
 
 button:disabled {
-  cursor: not-allowed; /* Cambia el cursor cuando el botón está deshabilitado */
-  opacity: 0.5; /* Reduce la opacidad de los botones deshabilitados */
+  cursor: not-allowed; 
+  opacity: 0.5;
 }
