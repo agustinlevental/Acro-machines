@@ -5,14 +5,13 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { format } from "date-fns";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { getClassByValue,getClassForCalidad } from "../../functions/functions";
+import { getClassByValue, getClassForCalidad } from "../../functions/functions";
 
 const MachineDescription = () => {
   const { id } = useParams();
   const [data, setData] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
   const [calidad, setCalidad] = useState(0);
-
 
   useEffect(() => {
     if (id) {
@@ -23,13 +22,7 @@ const MachineDescription = () => {
           );
           const responseData = response.data;
           setData(responseData);
-          console.log(responseData, "la data");
-      
-
-       
-        } catch (error) {
-          console.error("Error al obtener los datos:", error);
-        }
+        } catch (error) {}
       };
 
       fetchData();
@@ -42,37 +35,25 @@ const MachineDescription = () => {
       setCalidad(calidad);
 
       const formattedDateTime = format(
-        new Date(data.last_update), 
-        "dd/MM/yyyy HH:mm" 
+        new Date(data.last_update),
+        "dd/MM/yyyy HH:mm"
       );
       setFormattedDate(formattedDateTime);
-
-      console.log(data.last_update, "ultima fecha")
     }
-    
-    
-  });
-
-  if (!id) {
-    
-    return <p>no carga el id...</p>;
-  }
-
-
+  },[data]);
 
   return (
     <div className={styles.center}>
- <Link to="/machines" className={styles.goBackLink}>
-          <ArrowBackIcon sx={{width:15 , height:15 }} /> Volver
-        </Link>
+      <Link to="/machines" className={styles.goBackLink}>
+        <ArrowBackIcon sx={{ width: 15, height: 15 }} /> Volver
+      </Link>
       <div className={styles.machineContainer}>
-      
         <div className={styles.titleAndNumber}>
           <div className={styles.title}>
             <p>{data.description}</p>
           </div>
           <div className={styles.number}>
-            <p style={{ color: "#706f6f" }}>{data.chassis}</p>
+            <p className={styles.pNumber}>{data.chassis}</p>
           </div>
         </div>
         {data ? (
@@ -88,14 +69,14 @@ const MachineDescription = () => {
                         )}`}
                       >
                         <div className={cardStyles.indicadorName}>
-                          <p className={cardStyles.cardTitle}>
-                            Taponamiento
-                          </p>
+                          <p className={cardStyles.cardTitle}>Taponamiento</p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
                           <p className={cardStyles.valueBold}>
-                            
-                            {Math.floor(data.data.indicadores.taponamiento*100)}%
+                            {Math.floor(
+                              data.data.indicadores.taponamiento * 100
+                            )}
+                            %
                           </p>
                         </div>
                       </div>
@@ -106,14 +87,15 @@ const MachineDescription = () => {
                         )}`}
                       >
                         <div className={cardStyles.indicadorName}>
-                          <p className={cardStyles.cardTitle}>
-                            Evaporación
-                          </p>
+                          <p className={cardStyles.cardTitle}>Evaporación</p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
                           <p className={cardStyles.valueBold}>
                             {" "}
-                            {Math.floor(data.data.indicadores.evaporacion*100)}%
+                            {Math.floor(
+                              data.data.indicadores.evaporacion * 100
+                            )}
+                            %
                           </p>
                         </div>
                       </div>
@@ -132,7 +114,7 @@ const MachineDescription = () => {
                         <div className={cardStyles.indicadorValue}>
                           <p className={cardStyles.valueBold}>
                             {" "}
-                            {Math.floor(data.data.indicadores.deriva*100)}%
+                            {Math.floor(data.data.indicadores.deriva * 100)}%
                           </p>
                         </div>
                       </div>
@@ -142,10 +124,22 @@ const MachineDescription = () => {
                         )}`}
                       >
                         <div className={cardStyles.indicadorName}>
-                        <p className={`${cardStyles.cardTitle} ${calidad < 100 ? cardStyles.blackCalidad : ""}`}>Calidad</p>
+                          <p
+                            className={`${cardStyles.cardTitle} ${
+                              calidad < 100 ? cardStyles.blackCalidad : ""
+                            }`}
+                          >
+                            Calidad
+                          </p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
-                          <p className={`${cardStyles.valueBold} ${calidad < 100 ? cardStyles.blackCalidad : ""}`}>{calidad} %</p>
+                          <p
+                            className={`${cardStyles.valueBold} ${
+                              calidad < 100 ? cardStyles.blackCalidad : ""
+                            }`}
+                          >
+                            {calidad} %
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -160,22 +154,23 @@ const MachineDescription = () => {
                           </p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
-                          <p className={cardStyles.valueBoldCosechadora}>{data.data.indicadores.cultivo}</p>
+                          <p className={cardStyles.valueBoldCosechadora}>
+                            {data.data.indicadores.cultivo}
+                          </p>
                         </div>
                       </div>
 
                       <div className={`${styles.rectangle} `}>
                         <div className={cardStyles.indicadorName}>
-                          
                           <p className={cardStyles.cardTitleCosechadora}>
-                         
                             Humedad grano
                           </p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
-                          <p className={cardStyles.valueBoldCosechadora}> {
-                     
-                          Math.floor(data.data.indicadores.humedad_grano)}%</p>
+                          <p className={cardStyles.valueBoldCosechadora}>
+                            {" "}
+                            {Math.floor(data.data.indicadores.humedad_grano)}%
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -184,14 +179,11 @@ const MachineDescription = () => {
                         className={`${styles.rectangle} ${cardStyles.moving} `}
                       >
                         <div className={cardStyles.indicadorName}>
-                          <p className={cardStyles.cardTitle}>
-                            Rinde húmedo
-                          </p>
+                          <p className={cardStyles.cardTitle}>Rinde húmedo</p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
                           <p className={cardStyles.valueBold}>
-                          {Math.floor(data.data.indicadores.rinde_humedo)}
-
+                            {Math.floor(data.data.indicadores.rinde_humedo)}
                           </p>
                         </div>
                       </div>
@@ -204,7 +196,10 @@ const MachineDescription = () => {
                           </p>
                         </div>
                         <div className={cardStyles.indicadorValue}>
-                          <p className={cardStyles.valueBoldCosechadora}>   {Math.floor(data.data.indicadores.rinde_seco)}</p>
+                          <p className={cardStyles.valueBoldCosechadora}>
+                            {" "}
+                            {Math.floor(data.data.indicadores.rinde_seco)}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -213,51 +208,48 @@ const MachineDescription = () => {
               </div>
 
               <div className={styles.leftSimpleInformation}>
-              <div className={styles.textModule}>
-                <div className={styles.textSeparation}>
-                  <p className={styles.boldText}>Empresa</p>
-                </div>
-              
-                <div className={styles.textSeparation}>
-                  <p className={styles.blueText}>{data.company}</p>
-                </div>
+                <div className={styles.textModule}>
+                  <div className={styles.textSeparation}>
+                    <p className={styles.boldText}>Empresa</p>
+                  </div>
+
+                  <div className={styles.textSeparation}>
+                    <p className={styles.blueText}>{data.company}</p>
+                  </div>
                 </div>
                 <div className={styles.textModule}>
-                <div className={styles.textSeparation}>
-                  <p className={styles.boldText}>Clase</p>
-                </div>
-                <div className={styles.textSeparation}>
-                  <p>{data.class}</p>
-                </div>
-                </div>
-
-
-                <div className={styles.textModule}>
-                <div className={styles.textSeparation}>
-                  <p className={styles.boldText}>Estado</p>
-                </div>
-                <div className={styles.textSeparation}>
-                  <div
-                    className={`${cardStyles.status} ${
-                      data.moving == true
-                        ? cardStyles.moving
-                        : cardStyles.stoped
-                    }`}
-                  ></div>
-                  <p>{`${data.moving ? "En movimiento" : "Parado"}`}</p>
-                </div>
+                  <div className={styles.textSeparation}>
+                    <p className={styles.boldText}>Clase</p>
+                  </div>
+                  <div className={styles.textSeparation}>
+                    <p>{data.class}</p>
+                  </div>
                 </div>
 
                 <div className={styles.textModule}>
-                <div className={styles.textSeparation}>
-                  <p className={styles.boldText}>Última actualización</p>
-                </div>
-                <div className={styles.textSeparation}>
-                  <p>{formattedDate}</p>
-                </div>
+                  <div className={styles.textSeparation}>
+                    <p className={styles.boldText}>Estado</p>
+                  </div>
+                  <div className={styles.textSeparation}>
+                    <div
+                      className={`${cardStyles.status} ${
+                        data.moving == true
+                          ? cardStyles.moving
+                          : cardStyles.stoped
+                      }`}
+                    ></div>
+                    <p>{`${data.moving ? "En movimiento" : "Parado"}`}</p>
+                  </div>
                 </div>
 
-      
+                <div className={styles.textModule}>
+                  <div className={styles.textSeparation}>
+                    <p className={styles.boldText}>Última actualización</p>
+                  </div>
+                  <div className={styles.textSeparation}>
+                    <p>{formattedDate}</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className={styles.rigthInformation}>
@@ -282,39 +274,38 @@ const MachineDescription = () => {
                     <td>Batería vehículo</td>
                     <td>{data.data.general["batería vehiculo"]}</td>
                   </tr>
-             
                 </tbody>
-             
               </table>
-              
-{data.data.clima?(              <table className={styles.table}>
-                <thead>
-                  <tr>
-                    <th colSpan="2" className={styles.tableTitle}>
-                      Clima
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Temperatura</td>
-                    <td>{data.data.clima.temperatura}</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Humedad</td>
-                    <td>{data.data.clima.humedad}</td>
-                  </tr>
-                  <tr>
-                    <td>Dirección del viento</td>
-                    <td>{data.data.clima["direccion viento"]}</td>
-                  </tr>
-                  <tr>
-                    <td>Velocidad del viento</td>
-                    <td>{data.data.clima["velocidad viento"]}</td>
-                  </tr>
-                </tbody>
-              </table>):null}
+
+              {data.data.clima ? (
+                <table className={styles.table}>
+                  <thead>
+                    <tr>
+                      <th colSpan="2" className={styles.tableTitle}>
+                        Clima
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Temperatura</td>
+                      <td>{data.data.clima.temperatura}</td>
+                    </tr>
+                    <tr>
+                      <td>Humedad</td>
+                      <td>{data.data.clima.humedad}</td>
+                    </tr>
+                    <tr>
+                      <td>Dirección del viento</td>
+                      <td>{data.data.clima["direccion viento"]}</td>
+                    </tr>
+                    <tr>
+                      <td>Velocidad del viento</td>
+                      <td>{data.data.clima["velocidad viento"]}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              ) : null}
               <table className={`${styles.table} ${styles.lastTable}`}>
                 <thead>
                   <tr>
@@ -328,14 +319,14 @@ const MachineDescription = () => {
                     <td>Velocidad</td>
                     <td>{data.data.operación.velocidad}</td>
                   </tr>
-                  
+
                   <tr>
                     <td>Presión</td>
-                    <td>{data.data.operación.presión||"-"}</td>
+                    <td>{data.data.operación.presión || "-"}</td>
                   </tr>
                   <tr>
                     <td>Producto / hectárea</td>
-                    <td>{data.data.operación["producto / hectarea"]||"-"}</td>
+                    <td>{data.data.operación["producto / hectarea"] || "-"}</td>
                   </tr>
                   <tr>
                     <td>Ancho</td>

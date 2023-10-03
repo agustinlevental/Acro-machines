@@ -55,7 +55,9 @@ p {
 .number {
   padding: 0px 15px 0px 0px;
 }
-
+.pNumber{
+  color: #706f6f;
+}
 .descriptionContainer {
   display: flex;
   overflow: hidden;

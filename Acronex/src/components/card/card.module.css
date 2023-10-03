@@ -13,7 +13,7 @@
     flex-direction: row;
     align-items: center; 
   }
-  
+
   .status {
     width: 25px; 
     height: 25px;
@@ -33,6 +33,10 @@
   .nameAndDetail {
     width: calc(100% - 60px); 
     margin-left: 5px;
+  }
+
+  .linkCard{
+    text-decoration: none; color: black;
   }
   
   p {

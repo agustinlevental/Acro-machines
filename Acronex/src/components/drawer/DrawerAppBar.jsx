@@ -1,74 +1,72 @@
-import { AppBar, InputBase, Avatar, ThemeProvider, InputAdornment } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search'; 
+import {
+  AppBar,
+  InputBase,
+  Avatar,
+  ThemeProvider,
+  InputAdornment,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import styles from "./DrawerAppBar.module.css";
 
-const DrawerAppBar = ({theme,setSearchValue}) => {
+const DrawerAppBar = ({ theme, setSearchValue }) => {
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
-   
   };
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
-        <div
-          style={{
-            width: '100%',
-            justifyContent: 'space-between',
-            paddingLeft: '15px',
-            paddingRight: '15px',
-            display: 'flex',
-            alignItems: 'center',
-            padding:"0px 20px"
-          }}
-        >
-          <div style={{width: '25%', display:"flex",alignItems:"center" ,marginTop:"6px"}}>
+        <div className={styles.drawerAppBarContainer}>
+          <div className={styles.leftDrawerAppBar}>
             <div>
-          <img src="./logo.png" alt="Logo" style={{ width:"auto", height: '25px' }} />
-          </div>
-          <div style={{paddingTop: '2px'}}>
-            <img src="./unimap.svg" alt="Logo" style={{ width:"auto", height: '30px' }} />
+              <img
+                className={styles.logoDrawerAppBar}
+                src="./logo.png"
+                alt="Logo"
+              />
+            </div>
+            <div className={styles.unimapContainer}>
+              <img
+                className={styles.unimapLogo}
+                src="./unimap.svg"
+                alt="Logo"
+              />
             </div>
           </div>
-          <div style={{ height: '50px',flexGrow: 1, display: 'flex', justifyContent: 'center',  paddingTop: '10px',
-                paddingBottom: '10px' }}>
+          <div className={styles.centerDrawerAppBar}>
             <InputBase
               placeholder="Buscar..."
               fullWidth
               onChange={handleSearchChange}
               sx={{
-                backgroundColor: 'white',
-          
-                paddingLeft: '10px',
-                paddingRight: '10px',
-               
+                backgroundColor: "white",
+                paddingLeft: "10px",
+                paddingRight: "10px",
               }}
               endAdornment={
                 <InputAdornment position="end">
-                  <SearchIcon color="action" /> 
+                  <SearchIcon color="action" />
                 </InputAdornment>
               }
             />
           </div>
-          <div style={{width: '25%', display:"flex", justifyContent: 'end'}}>
-    
+          <div className={styles.rigthDrawerAppBar}>
             <Avatar
-  src="URL_DEL_AVATAR"
-  alt="Avatar"
-  sx={{
-    width: 25,
-    height: 25,
-    fontSize: '10px',
-    padding: '5px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor:"white",
-    color:"black"
-  }}
->
-  NN
-</Avatar>
-
-
+              src="URL_DEL_AVATAR"
+              alt="Avatar"
+              sx={{
+                width: 25,
+                height: 25,
+                fontSize: "10px",
+                padding: "5px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              NN
+            </Avatar>
           </div>
         </div>
       </AppBar>

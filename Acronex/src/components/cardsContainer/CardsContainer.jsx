@@ -1,37 +1,32 @@
-import { useState, useEffect } from 'react';
-import Card from '../card/card';
-import styles from './CardsContainer.module.css';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import Card from "../card/card";
+import styles from "./CardsContainer.module.css";
+import axios from "axios";
 
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 const CardsContainer = ({ searchValue }) => {
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1); 
-  const machinesPerPage = 6; 
+  const [page, setPage] = useState(1);
+  const machinesPerPage = 6;
 
   useEffect(() => {
     axios
       .get(`https://wrk.acronex.com/api/challenge/machines/?q=${searchValue}`)
       .then((response) => {
-        const data = Array.isArray(response.data) ? response.data : [response.data];
+        const data = Array.isArray(response.data)
+          ? response.data
+          : [response.data];
         setMachines(data);
-   
+
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error al obtener los datos:', error);
         setLoading(false);
       });
   }, [searchValue]);
-
-  useEffect(() => {
-    if (!loading) {
-      console.log('Datos de máquinas cargados:', machines);
-    }
-  }, [machines, loading]);
 
   const handlePreviousPage = () => {
     if (page > 1) {
@@ -63,7 +58,10 @@ const CardsContainer = ({ searchValue }) => {
             <Card key={machine.id} machine={machine} />
           ))}
         </div>
-        <button onClick={handleNextPage} disabled={page === Math.ceil(machines.length / machinesPerPage)}>
+        <button
+          onClick={handleNextPage}
+          disabled={page === Math.ceil(machines.length / machinesPerPage)}
+        >
           <NavigateNextIcon />
         </button>
       </div>
