@@ -9,6 +9,8 @@ const Card = ({ machine }) => {
   const isObject = typeof machine === "object";
   const machines = isObject ? [machine] : machine;
 
+  console.log(machines,"machines")
+
   return (
     <div className={styles.card}>
       {machines.map((machineItem) => (
