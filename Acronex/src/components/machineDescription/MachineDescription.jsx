@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { format } from "date-fns";
-import { getClassByValue, getClassForCalidad } from "../card/card";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { getClassByValue,getClassForCalidad } from "../../functions/functions";
 
 const MachineDescription = () => {
   const { id } = useParams();
