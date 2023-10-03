@@ -9,8 +9,9 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 const CardsContainer = ({ searchValue }) => {
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1); // Página actual, por defecto 1
-  const machinesPerPage = 6; // Cantidad de máquinas por página
+  const [page, setPage] = useState(1); 
+  const [fetchedData, setFetchedData] = useState([])
+  const machinesPerPage = 6; 
 
   useEffect(() => {
     axios
@@ -18,6 +19,7 @@ const CardsContainer = ({ searchValue }) => {
       .then((response) => {
         const data = Array.isArray(response.data) ? response.data : [response.data];
         setMachines(data);
+   
         setLoading(false);
       })
       .catch((error) => {
