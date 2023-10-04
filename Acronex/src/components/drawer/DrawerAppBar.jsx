@@ -35,6 +35,7 @@ const DrawerAppBar = ({ theme }) => {
               placeholder="Buscar..."
               fullWidth
               onChange={handleSearchChange}
+              className={styles.inputBase}
               sx={{
                 backgroundColor: "white",
                 paddingLeft: "10px",

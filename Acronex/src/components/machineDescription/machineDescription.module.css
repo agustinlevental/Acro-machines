@@ -5,10 +5,10 @@ body {
 .center {
   display: flex;
   justify-content: center;
-  height: 610px;
-  width: 100%;
-  background-color: #e4e4e4;
-  overflow-y: auto;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e4e4e4; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 .goBackLink {
   display: flex;
@@ -28,7 +28,9 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  border-radius: 10px; 
   margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 .indicadores {
   width: 90%;
@@ -37,13 +39,20 @@ body {
 }
 
 .titleAndNumber {
-  padding: 0px 21px;
+  padding: 10px; /* Añade espacio alrededor del título y el número */
   border-bottom: 1px solid #e4e4e4;
-  height: 10%;
-  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.number {
+  padding: 0px 15px 0px 0px;
+}
+
+.pNumber {
+  color: gray; 
+ 
 }
 p {
   font-family: sans-serif;
@@ -52,12 +61,7 @@ p {
 .title {
 }
 
-.number {
-  padding: 0px 15px 0px 0px;
-}
-.pNumber{
-  color: #706f6f;
-}
+
 .descriptionContainer {
   display: flex;
   overflow: hidden;
@@ -78,12 +82,13 @@ p {
   margin: 10px;
   background-color: lightgray;
   transition: box-shadow 0.3s, transform 0.3s;
-  cursor: pointer;
+  cursor:auto;
 }
 
 .rectangle:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
+  cursor:auto;
 }
 .leftGraphics {
 }

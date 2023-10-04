@@ -27,6 +27,16 @@
     height: 50px;flex-grow: 1; display: flex; justify-content: center;  padding-top: 10px;
     padding-bottom: 10px;
 }
-.rigthDrawerAppBar{
-    width: 25%; display:flex; justify-content: end;
-}
+.rigthDrawerAppBar {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+  }
+
+  .inputBase {
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px; 
+  }
