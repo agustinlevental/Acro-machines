@@ -10,7 +10,7 @@ import { useLoaderData } from "react-router-dom";
 export function loader({params, request}){
   const url = new URL(request.url);
   const searchValue = url.searchParams.get("searchValue") || "";
-  // return searchValue;
+  return searchValue;
 }
 
 const CardsContainer = () => {
