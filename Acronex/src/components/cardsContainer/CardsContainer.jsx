@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Card from "../card/card";
 import styles from "./CardsContainer.module.css";
 import axios from "axios";
-
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useLoaderData } from "react-router-dom";
@@ -42,6 +41,12 @@ const CardsContainer = () => {
     }
   };
 
+  useEffect(() => {
+
+    if (machines.length <= 6) {
+      setPage(1);
+    }
+  }, [machines]);
   const handleNextPage = () => {
     if (page < Math.ceil(machines.length / machinesPerPage)) {
       setPage(page + 1);
