@@ -1,17 +1,15 @@
-import {
-  AppBar,
-  InputBase,
-  Avatar,
-  ThemeProvider,
-  InputAdornment,
-} from "@mui/material";
+import {AppBar,InputBase,Avatar,ThemeProvider,InputAdornment,} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import styles from "./DrawerAppBar.module.css";
+import { useSubmit } from "react-router-dom";
 
-const DrawerAppBar = ({ theme, setSearchValue }) => {
+const DrawerAppBar = ({ theme }) => {
+  const submit = useSubmit()
+
   const handleSearchChange = (event) => {
-    setSearchValue(event.target.value);
+    submit({searchValue: event.target.value}, {method: "get", action: "/machines"});
   };
+  
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">

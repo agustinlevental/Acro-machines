@@ -5,8 +5,16 @@ import axios from "axios";
 
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { useLoaderData } from "react-router-dom";
 
-const CardsContainer = ({ searchValue }) => {
+export function loader({params, request}){
+  const url = new URL(request.url);
+  const searchValue = url.searchParams.get("searchValue") || "";
+  // return searchValue;
+}
+
+const CardsContainer = () => {
+  let searchValue = useLoaderData();
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -27,13 +35,6 @@ const CardsContainer = ({ searchValue }) => {
         setLoading(false);
       });
   }, [searchValue]);
-
-
-  useEffect(() => {
-    if (machines.length <= machinesPerPage) {
-      setPage(1);
-    }
-  }, [machines.length]);
 
   const handlePreviousPage = () => {
     if (page > 1) {

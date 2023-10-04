@@ -1,0 +1,21 @@
+#error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    border: #777777 solid 2px;
+    border-radius: 10px;
+    padding: 10px;  
+    box-shadow: 17px 11px 28px -4px rgba(168,168,168,0.96);
+    margin: 20px auto;
+    background-color: #FFF;
+  }
+
+  .button{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 12px 1px rgba(168,168,168,0.96);
+    margin: 10px;
+  }

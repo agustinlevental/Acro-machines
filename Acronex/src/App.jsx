@@ -1,10 +1,8 @@
-import {
-  Container, ThemeProvider, createTheme,
-} from "@mui/material";
+import {Container, ThemeProvider, createTheme,} from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import DrawerAppBar from "./components/drawer/DrawerAppBar";
-import CardsContainer from "./components/CardsContainer/CardsContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {Outlet, useNavigate, redirect} from "react-router-dom";
 
 
 const theme = createTheme({
@@ -34,16 +32,18 @@ const theme = createTheme({
 
 function App() {
   const [searchValue,setSearchValue] =useState("")
+  const navigate = useNavigate();
+  
+  useEffect(()=>{
+    navigate("/machines");
+  },[]);
   return (
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container maxWidth="xl" sx={{ padding: "0px !important",backgroundColor:"#e4e4e4" }}>
            <DrawerAppBar theme={theme} setSearchValue={setSearchValue} />
-          <CardsContainer
-           searchValue={searchValue}
-           />
-     
+           <Outlet/>
         </Container>
       </ThemeProvider>
  
