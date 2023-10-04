@@ -7,11 +7,11 @@ const IndicatorItem = ({ label, value, className }) => {
   const isHumedadGrano = label === "Humedad grano";
   const isRindeSeco = label === "Rinde seco";
 
-  
+  console.log(label,value,className)
   const computedValue = label === "Calidad" ? (100 - value) : value;
 
   return (
-    <div className={`${styles.rectangle} ${className}`}>
+    <div className={`${styles.rectangle} ${label!=="Calidad"?className:getClassForCalidad(100-value)}`}>
       <div className={styles.indicadorName}>
         <p
           className={`${
@@ -60,10 +60,16 @@ const Indicators = ({ machineItem }) => {
           machineItem.data?.indicadores[label.replace(/ /g, "_").toLowerCase()]
       ) * 100
     ),
-    className: getClassByValue(
-      value ||
+    className: label !== "Calidad"
+    ? getClassByValue(
+        value ||
         machineItem.data?.indicadores[label.replace(/ /g, "_").toLowerCase()]
-    ),
+      )
+    : getClassForCalidad(
+        value ||
+        machineItem.data?.indicadores[label.replace(/ /g, "_").toLowerCase()]
+      )
+  
   });
 
   const isPulverizadora =
