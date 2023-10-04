@@ -41,7 +41,7 @@ function App() {
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="xl" sx={{ padding: "0px !important",backgroundColor:"#e4e4e4" }}>
+        <Container sx={{ padding: "0px !important",backgroundColor:"#e4e4e4", minHeight: "100vh", minWidth: "100vw" }}>
            <DrawerAppBar theme={theme} setSearchValue={setSearchValue} />
            <Outlet/>
         </Container>

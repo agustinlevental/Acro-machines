@@ -66,7 +66,7 @@ const CardsContainer = () => {
         <button onClick={handlePreviousPage} disabled={page === 1}>
           <NavigateBeforeIcon />
         </button>
-        <div className={styles.CardsContainer}>
+        <div className={styles.CardsContainer} style={{maxWidth: "100%"}}>
           {machines.slice(startIndex, endIndex).map((machine) => (
             <Card key={machine.id} machine={machine} />
           ))}
