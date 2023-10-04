@@ -85,9 +85,7 @@
   text-overflow: ellipsis; 
   max-width: 100%; 
   }
-  .truncateText:hover {
-    text-decoration: underline; 
-  }
+ 
   
   .blue-text {
     color: blue;

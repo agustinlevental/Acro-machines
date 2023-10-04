@@ -14,7 +14,7 @@ export default function ErrorPage(){
       <h1>Oops!</h1>
       <p>Ocurrio un error inesperado.</p>
       <p>
-        {/* <i>{error.statusText || error.message}</i> */}
+   
       </p>
       <div className="button">
         <button onClick={handleClick}>Volver</button>

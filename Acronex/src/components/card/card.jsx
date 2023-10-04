@@ -5,14 +5,17 @@ import { getClassByValue, getClassForCalidad } from "../../functions/functions";
 import Indicators from "./indicators/Indicators";
 
 const Card = ({ machine }) => {
-  
   const isObject = typeof machine === "object";
   const machines = isObject ? [machine] : machine;
 
-  console.log(machines,"machines")
-
   return (
-    <div className={styles.card}>
+    <Link
+      to={`/machines/${machines[0].id}`}
+      state={{ id: machines[0].id }}
+      className={styles.card}
+      style={{ textDecoration: "none", 
+      color: "inherit"}}
+    >
       {machines.map((machineItem) => (
         <div key={machineItem.id} className={styles.statusAndName}>
           <div
@@ -21,15 +24,9 @@ const Card = ({ machine }) => {
             }`}
           ></div>
           <div className={styles.nameAndDetail}>
-            <Link
-              to={`/machines/${machineItem.id}`}
-              state={{ id: machineItem.id }}
-              className={styles.linkCard}
-            >
-              <p className={`${styles.truncateText}`}>
-                {`(${machineItem.id}) ${machineItem.description}`}
-              </p>
-            </Link>
+            <p className={`${styles.truncateText}`}>
+              {`(${machineItem.id}) ${machineItem.description}`}
+            </p>
             <p>
               <span className={styles["blue-text"]}>{`${machineItem.company}`}</span>
             </p>
@@ -39,7 +36,7 @@ const Card = ({ machine }) => {
       {machines.map((machineItem) => (
         <Indicators machineItem={machineItem} key={machineItem.id} />
       ))}
-    </div>
+    </Link>
   );
 };
 

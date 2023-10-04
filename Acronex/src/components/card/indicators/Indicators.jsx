@@ -6,6 +6,9 @@ import {
 const IndicatorItem = ({ label, value, className }) => {
   const isHumedadGrano = label === "Humedad grano";
   const isRindeSeco = label === "Rinde seco";
+console.log(label,"label",value,"value")
+  
+  const computedValue = label === "Calidad" ? (100 - value) : value;
 
   return (
     <div className={`${styles.rectangle} ${className}`}>
@@ -30,7 +33,7 @@ const IndicatorItem = ({ label, value, className }) => {
                   : styles.valueBoldCosechadora
               }`}
             >
-              {value}%
+              {computedValue}%
             </p>
           </>
         ) : (
@@ -39,13 +42,14 @@ const IndicatorItem = ({ label, value, className }) => {
               isRindeSeco ? styles.valueBoldCosechadora : styles.valueBold
             }`}
           >
-            {value}
+            {computedValue}
           </p>
         )}
       </div>
     </div>
   );
 };
+
 
 const Indicators = ({ machineItem }) => {
   const commonProps = (label, value) => ({
