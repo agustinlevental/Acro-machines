@@ -28,6 +28,13 @@ const CardsContainer = ({ searchValue }) => {
       });
   }, [searchValue]);
 
+
+  useEffect(() => {
+    if (machines.length <= machinesPerPage) {
+      setPage(1);
+    }
+  }, [machines.length]);
+
   const handlePreviousPage = () => {
     if (page > 1) {
       setPage(page - 1);
