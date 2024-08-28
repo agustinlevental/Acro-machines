@@ -3,15 +3,13 @@ import {
   getClassByValue,
   getClassForCalidad,
 } from "../../../functions/functions";
+
 const IndicatorItem = ({ label, value, className }) => {
   const isHumedadGrano = label === "Humedad grano";
   const isRindeSeco = label === "Rinde seco";
 
-  console.log(label,value,className)
-  const computedValue = label === "Calidad" ? (100 - value) : value;
-
   return (
-    <div className={`${styles.rectangle} ${label!=="Calidad"?className:getClassForCalidad(100-value)}`}>
+    <div className={`${styles.rectangle} ${label !== "Calidad" ? className : getClassForCalidad(value)}`}>
       <div className={styles.indicadorName}>
         <p
           className={`${
@@ -33,7 +31,7 @@ const IndicatorItem = ({ label, value, className }) => {
                   : styles.valueBoldCosechadora
               }`}
             >
-              {computedValue}%
+              {value}%
             </p>
           </>
         ) : (
@@ -42,7 +40,7 @@ const IndicatorItem = ({ label, value, className }) => {
               isRindeSeco ? styles.valueBoldCosechadora : styles.valueBold
             }`}
           >
-            {computedValue}
+            {value}
           </p>
         )}
       </div>
@@ -50,26 +48,13 @@ const IndicatorItem = ({ label, value, className }) => {
   );
 };
 
-
 const Indicators = ({ machineItem }) => {
   const commonProps = (label, value) => ({
     label,
-    value: Math.floor(
-      Math.abs(
-        value ||
-          machineItem.data?.indicadores[label.replace(/ /g, "_").toLowerCase()]
-      ) * 100
-    ),
+    value,
     className: label !== "Calidad"
-    ? getClassByValue(
-        value ||
-        machineItem.data?.indicadores[label.replace(/ /g, "_").toLowerCase()]
-      )
-    : getClassForCalidad(
-        value ||
-        machineItem.data?.indicadores[label.replace(/ /g, "_").toLowerCase()]
-      )
-  
+      ? getClassByValue(value)
+      : getClassForCalidad(value)
   });
 
   const isPulverizadora =
@@ -84,13 +69,13 @@ const Indicators = ({ machineItem }) => {
             <IndicatorItem
               {...commonProps(
                 "Taponamiento",
-                machineItem?.indicadores?.taponamiento
+                machineItem?.indicators[0]?.taponamiento
               )}
             />
             <IndicatorItem
               {...commonProps(
                 "Evaporación",
-                machineItem?.indicadores?.evaporacion
+                machineItem?.indicators[0]?.evaporacion
               )}
             />
           </div>
@@ -98,11 +83,11 @@ const Indicators = ({ machineItem }) => {
             <IndicatorItem
               {...commonProps(
                 "Perdida p. viento",
-                machineItem?.indicadores?.deriva
+                machineItem?.indicators[0]?.deriva
               )}
             />
             <IndicatorItem
-              {...commonProps("Calidad", machineItem?.indicadores?.calidad)}
+              {...commonProps("Calidad", machineItem?.indicators[0]?.calidad)}
             />
           </div>
         </div>
@@ -115,27 +100,27 @@ const Indicators = ({ machineItem }) => {
               </div>
               <div className={styles.indicadorValue}>
                 <p className={styles.valueBoldCosechadora}>
-                  {machineItem?.indicadores?.cultivo ||
-                    machineItem?.data?.indicadores?.cultivo}
+                  {machineItem?.indicators[0]?.cultivo ||
+                    machineItem?.data?.indicators[0]?.cultivo}
                 </p>
               </div>
             </div>
             <IndicatorItem
               {...commonProps(
                 "Humedad grano",
-                machineItem?.indicadores?.humedad_grano
+                machineItem?.indicators[0]?.humedadGrano
               )}
             />
           </div>
           <div className={styles.row}>
             <IndicatorItem
               label="Rinde húmedo"
-              value={machineItem?.indicadores?.rinde_humedo}
+              value={machineItem?.indicators[0]?.rindeHumedo}
               className={`${styles.rectangle} ${styles.moving}`}
             />
             <IndicatorItem
               label="Rinde seco"
-              value={machineItem?.indicadores?.rinde_seco}
+              value={machineItem?.indicators[0]?.rindeSeco}
               className={`${styles.rectangle} ${styles.rindeSeco}`}
             />
           </div>

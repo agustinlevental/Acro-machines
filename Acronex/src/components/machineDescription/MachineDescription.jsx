@@ -19,7 +19,7 @@ const MachineDescription = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `https://wrk.acronex.com/api/challenge/machines/${id}`
+            `https://localhost:44349/api/Machines/${id}`
           );
           const responseData = response.data;
           setData(responseData);

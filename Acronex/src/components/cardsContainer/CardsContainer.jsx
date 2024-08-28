@@ -21,7 +21,9 @@ const CardsContainer = () => {
 
   useEffect(() => {
     axios
-      .get(`https://wrk.acronex.com/api/challenge/machines/?q=${searchValue}`)
+      .get(`https://localhost:44349/api/Machines/ `)
+        // agregar ?q=${searchValue}
+     
       .then((response) => {
         const data = Array.isArray(response.data)
           ? response.data
