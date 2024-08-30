@@ -6,7 +6,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useLoaderData } from "react-router-dom";
 
-export function loader({params, request}){
+export function loader({ params, request }) {
   const url = new URL(request.url);
   const searchValue = url.searchParams.get("searchValue") || "";
   return searchValue;
@@ -21,15 +21,16 @@ const CardsContainer = () => {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:44349/api/Machines/ `)
-        // agregar ?q=${searchValue}
-     
+      .get(`https://localhost:44349/api/Machines`, {
+        params: {
+          searchValue: searchValue,  
+        },
+      })
       .then((response) => {
         const data = Array.isArray(response.data)
           ? response.data
           : [response.data];
         setMachines(data);
-
         setLoading(false);
       })
       .catch((error) => {
@@ -44,11 +45,11 @@ const CardsContainer = () => {
   };
 
   useEffect(() => {
-
     if (machines.length <= 6) {
       setPage(1);
     }
   }, [machines]);
+
   const handleNextPage = () => {
     if (page < Math.ceil(machines.length / machinesPerPage)) {
       setPage(page + 1);
@@ -68,7 +69,7 @@ const CardsContainer = () => {
         <button onClick={handlePreviousPage} disabled={page === 1}>
           <NavigateBeforeIcon />
         </button>
-        <div className={styles.CardsContainer} style={{maxWidth: "100%"}}>
+        <div className={styles.CardsContainer} style={{ maxWidth: "100%" }}>
           {machines.slice(startIndex, endIndex).map((machine) => (
             <Card key={machine.id} machine={machine} />
           ))}

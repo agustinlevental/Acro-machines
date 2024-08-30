@@ -1,4 +1,5 @@
 .drawerAppBarContainer {
+  background-color: #6B9C3A !important;
   width: 100%;
   justify-content: space-between;
   padding-left: 15px;
@@ -15,10 +16,11 @@
 }
 
 .logoDrawerAppBar{
-    width:auto; height: 25px;
+    width:25px; height: 25px;
 }
-.unimapContainer{
+.titleContainer{
     padding-top: 2px;
+    margin-left: 10px;
 }
 .unimapLogo{
     width:auto; height: 30px; 

@@ -41,7 +41,7 @@ function MachineSimpleInformation({ data, formattedDate }) {
           <p className={styles.boldText}>Última actualización</p>
         </div>
         <div className={styles.textSeparation}>
-          {/* <p>{formattedDate}</p> */}
+          <p>{formattedDate}</p>
         </div>
       </div>
     </div>

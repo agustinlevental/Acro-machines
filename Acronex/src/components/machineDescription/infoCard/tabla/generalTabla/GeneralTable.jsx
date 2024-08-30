@@ -12,10 +12,7 @@ function GeneralTable({ data }) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Cosechando</td>
-          <td>{data.working ? "si" : "no"}</td>
-        </tr>
+        
         <tr>
           <td>Batería interna</td>
           <td>{data.bateriaInterna}</td>

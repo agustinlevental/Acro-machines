@@ -5,6 +5,7 @@ import PulverizadoraInfo from "./pulverizadora/PulverizadoraInfo";
 import CosechadoraInfo from "./cosechadora/CosechadoraInfo";
 import MachineSimpleInformation from "./machineSimpleInformation/MachineSimpleInformation";
 import TableInfomation from "./tabla/TableInformation";
+import Indicators from "../../card/indicators/Indicators";
 
 function InfoCard({ data, calidad, formattedDate, getClassByValue, getClassForCalidad }) {
 
@@ -13,19 +14,14 @@ function InfoCard({ data, calidad, formattedDate, getClassByValue, getClassForCa
       <div className={styles.leftInformation}>
         <div className={styles.indicadores}>
         {data.type === "Pulverizadora" ? (
-            <PulverizadoraInfo
-              data={data}
-              getClassByValue={getClassByValue}
-              calidad={calidad}
-              getClassForCalidad={getClassForCalidad}
-            />
+           <Indicators machine={data} key={data.id} isDescriptionCard={true} />
           ) : (
-            <CosechadoraInfo data={data} />
+            <Indicators machine={data} isDescriptionCard={true} />
           )}
         </div>
 
         <MachineSimpleInformation data={data} 
-        // formattedDate={formattedDate} 
+        formattedDate={formattedDate} 
         />
       </div>
 

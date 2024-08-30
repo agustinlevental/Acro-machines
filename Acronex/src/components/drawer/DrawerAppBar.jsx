@@ -1,15 +1,24 @@
-import {AppBar,InputBase,Avatar,ThemeProvider,InputAdornment,} from "@mui/material";
+import {
+  AppBar,
+  InputBase,
+  Avatar,
+  ThemeProvider,
+  InputAdornment,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import styles from "./DrawerAppBar.module.css";
 import { useSubmit } from "react-router-dom";
 
 const DrawerAppBar = ({ theme }) => {
-  const submit = useSubmit()
+  const submit = useSubmit();
 
   const handleSearchChange = (event) => {
-    submit({searchValue: event.target.value}, {method: "get", action: "/machines"});
+    submit(
+      { searchValue: event.target.value },
+      { method: "get", action: "/machines" }
+    );
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
@@ -18,16 +27,12 @@ const DrawerAppBar = ({ theme }) => {
             <div>
               <img
                 className={styles.logoDrawerAppBar}
-                src="./logo.png"
+                src="./png3.png"
                 alt="Logo"
               />
             </div>
-            <div className={styles.unimapContainer}>
-              <img
-                className={styles.unimapLogo}
-                src="./unimap.svg"
-                alt="Logo"
-              />
+            <div className={styles.titleContainer}>
+              <p>Dashboard</p>
             </div>
           </div>
           <div className={styles.centerDrawerAppBar}>
@@ -57,6 +62,7 @@ const DrawerAppBar = ({ theme }) => {
                 height: 25,
                 fontSize: "10px",
                 padding: "5px",
+                marginRight:"20px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

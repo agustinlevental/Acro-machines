@@ -4,7 +4,7 @@ import cardStyles from "../../../card/card.module.css";
 import styles from "../../machineDescription.module.css"; 
 
 function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad }) {
- 
+
   return (
     <div>
       <div className={cardStyles.row}>

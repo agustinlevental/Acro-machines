@@ -38,7 +38,7 @@ body {
 }
 
 .titleAndNumber {
-  padding: 10px; /* Añade espacio alrededor del título y el número */
+  padding: 10px;
   border-bottom: 1px solid #e4e4e4;
   display: flex;
   justify-content: space-between;
@@ -79,9 +79,9 @@ p {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  background-color: lightgray;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s, transform 0.3s;
-  cursor:auto;
+  cursor: pointer;
 }
 
 .rectangle:hover {
@@ -93,9 +93,30 @@ p {
 }
 
 .indicadorName {
+  color:dimgray;
+  height: 20%; 
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.cardTitle {
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+  color: dimgray; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
 .indicadorValue {
+  height: 75%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.valueBold{
+  font-weight: bold;
+  color: white; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .leftSimpleInformation {

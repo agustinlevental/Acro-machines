@@ -3,7 +3,7 @@ import cardStyles from "../card/card.module.css";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { format } from "date-fns";
+import { format, isToday } from "date-fns";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { getClassByValue, getClassForCalidad } from "../../functions/functions";
 import InfoCard from "./infoCard/InfoCard";
@@ -31,19 +31,10 @@ const MachineDescription = () => {
   }, [id]);
 
   useEffect(() => {
-    if (data) {
-    
-      const calidad = Math.floor((1 - data.calidad) * 100);
-      setCalidad(calidad);
-
-      // const formattedDateTime = format(
-      //   new Date(data.last_update),
-      //   "dd/MM/yyyy HH:mm"
-      // );
-      // setFormattedDate(formattedDateTime);
-    }
-  },[data]);
-
+   
+    const formattedDateTime = format(new Date(), 'dd/MM/yyyy HH:mm');
+    setFormattedDate(formattedDateTime);
+  }, []);
   return (
     <div className={styles.center}>
       <Link to="/machines" className={styles.goBackLink}>
@@ -63,7 +54,7 @@ const MachineDescription = () => {
           <InfoCard
             data={data}
             calidad={calidad}
-            // formattedDate={formattedDate}
+            formattedDate={formattedDate}
             getClassByValue={getClassByValue}
             getClassForCalidad={getClassForCalidad}
           />

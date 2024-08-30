@@ -69,12 +69,12 @@
   .valueBold{
     font-weight: bold;
     color: white; 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
   }
   .valueBoldCosechadora{
     font-weight: bold;
     color: black; 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+ 
   }
   .blackCalidad{
     color: black;
@@ -96,6 +96,9 @@
     display: flex;
     flex-direction: column; 
     margin-bottom: 10px;
+
+  }
+  .paddingAndMarginLeft{
     margin-left: 5px;
     padding-left: 25px;
   }
@@ -128,11 +131,11 @@
   }
   
   .secondBreack {
-    color: #ffff00  !important;
+    color: #f7bd01  !important;
   }
   
   .thirdBreack {
-    color: #ffa500  !important;
+    color: #F75802  !important;
   }
   
   .fourthBreack {
@@ -140,11 +143,11 @@
   }
   
   .fifthBreack {
-    color: #8b0000  !important;
+    color: #F70506  !important;
   }
   
   .sixthBreack {
-    color: #8b0000  !important;
+    color: #F70506  !important;
   }
 
   .regularBreack {
@@ -152,7 +155,7 @@
   }
 
   .rinde{
-    color: #B3D838 !important;
+    color: #008000;
   }
  
   .indicadorName {
