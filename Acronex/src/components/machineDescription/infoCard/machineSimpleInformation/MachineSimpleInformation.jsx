@@ -4,6 +4,7 @@ import styles from "../../machineDescription.module.css";
 import cardStyles from "../../../card/card.module.css";
 
 function MachineSimpleInformation({ data, formattedDate }) {
+ 
   return (
     <div className={styles.leftSimpleInformation}>
       <div className={styles.textModule}>
@@ -19,7 +20,7 @@ function MachineSimpleInformation({ data, formattedDate }) {
           <p className={styles.boldText}>Clase</p>
         </div>
         <div className={styles.textSeparation}>
-          <p>{data.class}</p>
+          <p>{data.type}</p>
         </div>
       </div>
       <div className={styles.textModule}>
@@ -40,7 +41,7 @@ function MachineSimpleInformation({ data, formattedDate }) {
           <p className={styles.boldText}>Última actualización</p>
         </div>
         <div className={styles.textSeparation}>
-          <p>{formattedDate}</p>
+          {/* <p>{formattedDate}</p> */}
         </div>
       </div>
     </div>

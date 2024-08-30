@@ -4,7 +4,7 @@ import styles from "../../../machineDescription.module.css";
 function ClimaTable({ data }) {
   return (
     <>
-      {data.data.clima ? (
+      {data.clima ? (
         <table className={styles.table}>
           <thead>
             <tr>
@@ -16,19 +16,19 @@ function ClimaTable({ data }) {
           <tbody>
             <tr>
               <td>Temperatura</td>
-              <td>{data.data.clima.temperatura}</td>
+              <td>{data.temperatura}</td>
             </tr>
             <tr>
               <td>Humedad</td>
-              <td>{data.data.clima.humedad}</td>
+              <td>{data.humedad}</td>
             </tr>
             <tr>
               <td>Dirección del viento</td>
-              <td>{data.data.clima["direccion viento"]}</td>
+              <td>{data.clima["direccion viento"]}</td>
             </tr>
             <tr>
               <td>Velocidad del viento</td>
-              <td>{data.data.clima["velocidad viento"]}</td>
+              <td>{data.clima["velocidad viento"]}</td>
             </tr>
           </tbody>
         </table>

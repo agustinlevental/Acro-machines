@@ -4,6 +4,7 @@ import cardStyles from "../../../card/card.module.css";
 import styles from "../../machineDescription.module.css"; 
 
 function CosechadoraInfo({ data }) {
+
   return (
     <div>
       <div className={cardStyles.row}>
@@ -15,7 +16,7 @@ function CosechadoraInfo({ data }) {
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBoldCosechadora}>
-              {data.data.indicadores.cultivo}
+              { data.cultivo}
             </p>
           </div>
         </div>
@@ -28,7 +29,7 @@ function CosechadoraInfo({ data }) {
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBoldCosechadora}>
-              {Math.floor(data.data.indicadores.humedad_grano)}%
+              {Math.floor( data.humedadGrano)}%
             </p>
           </div>
         </div>
@@ -42,7 +43,7 @@ function CosechadoraInfo({ data }) {
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBold}>
-              {Math.floor(data.data.indicadores.rinde_humedo)}
+              {Math.floor( data.rindeHumedo)}
             </p>
           </div>
         </div>
@@ -56,7 +57,7 @@ function CosechadoraInfo({ data }) {
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBoldCosechadora}>
-              {Math.floor(data.data.indicadores.rinde_seco)}
+              {Math.floor( data.rindeSeco)}
             </p>
           </div>
         </div>

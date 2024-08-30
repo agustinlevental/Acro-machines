@@ -18,11 +18,11 @@ function GeneralTable({ data }) {
         </tr>
         <tr>
           <td>Batería interna</td>
-          <td>{data.data.general["batería interna"]}</td>
+          <td>{data.bateriaInterna}</td>
         </tr>
         <tr>
           <td>Batería vehículo</td>
-          <td>{data.data.general["batería vehiculo"]}</td>
+          <td>{data.bateriaVehiculo}</td>
         </tr>
       </tbody>
     </table>

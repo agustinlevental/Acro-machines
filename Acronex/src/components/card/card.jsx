@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 import { useEffect } from "react";
-import { getClassByValue, getClassForCalidad } from "../../functions/functions";
 import Indicators from "./indicators/Indicators";
 
 const Card = ({ machine }) => {
@@ -16,26 +15,26 @@ const Card = ({ machine }) => {
       style={{ textDecoration: "none", 
       color: "inherit"}}
     >
-      {machines.map((machineItem) => (
-        <div key={machineItem.id} className={styles.statusAndName}>
+      {machines.map((machine) => (
+        <div key={machine.id} className={styles.statusAndName}>
           <div
             className={`${styles.status} ${
-              machineItem?.moving === true ? styles.moving : styles.stopped
+              machine?.moving === true ? styles.moving : styles.stopped
             }`}
           ></div>
           <div className={styles.nameAndDetail}>
             <p className={`${styles.truncateText}`}>
-              {`(${machineItem.id}) ${machineItem.description}`}
+              {`(${machine.id}) ${machine.description}`}
             </p>
             <p>
-              <span className={styles["blue-text"]}>{`${machineItem.company}`}</span>
+              <span className={styles["blue-text"]}>{`${machine.company}`}</span>
             </p>
           </div>
         </div>
       ))}
-      {machines.map((machineItem) => (
-        <Indicators machineItem={machineItem} key={machineItem.id} />
-      ))}
+    
+        <Indicators machine={machine} key={machine.id} />
+     
     </Link>
   );
 };

@@ -14,19 +14,19 @@ function OperacionTable({ data }) {
       <tbody>
         <tr>
           <td>Velocidad</td>
-          <td>{data.data.operación.velocidad}</td>
+          <td>{data.velocidad}</td>
         </tr>
         <tr>
           <td>Presión</td>
-          <td>{data.data.operación.presión || "-"}</td>
+          <td>{data.presión || "-"}</td>
         </tr>
         <tr>
           <td>Producto / hectárea</td>
-          <td>{data.data.operación["producto / hectarea"] || "-"}</td>
+          <td>{data.productoPorHectarea || "-"}</td>
         </tr>
         <tr>
           <td>Ancho</td>
-          <td>{data.data.general.ancho}</td>
+          <td>{data.ancho}</td>
         </tr>
       </tbody>
     </table>

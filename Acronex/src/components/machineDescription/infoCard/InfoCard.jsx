@@ -7,11 +7,12 @@ import MachineSimpleInformation from "./machineSimpleInformation/MachineSimpleIn
 import TableInfomation from "./tabla/TableInformation";
 
 function InfoCard({ data, calidad, formattedDate, getClassByValue, getClassForCalidad }) {
+
   return (
     <div className={styles.descriptionContainer}>
       <div className={styles.leftInformation}>
         <div className={styles.indicadores}>
-        {data.class === "Pulverizadora" ? (
+        {data.type === "Pulverizadora" ? (
             <PulverizadoraInfo
               data={data}
               getClassByValue={getClassByValue}
@@ -23,7 +24,9 @@ function InfoCard({ data, calidad, formattedDate, getClassByValue, getClassForCa
           )}
         </div>
 
-        <MachineSimpleInformation data={data} formattedDate={formattedDate} />
+        <MachineSimpleInformation data={data} 
+        // formattedDate={formattedDate} 
+        />
       </div>
 
      <TableInfomation data={data} />

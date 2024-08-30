@@ -32,14 +32,15 @@ const MachineDescription = () => {
 
   useEffect(() => {
     if (data) {
-      const calidad = Math.floor((1 - data.data.indicadores.calidad) * 100);
+    
+      const calidad = Math.floor((1 - data.calidad) * 100);
       setCalidad(calidad);
 
-      const formattedDateTime = format(
-        new Date(data.last_update),
-        "dd/MM/yyyy HH:mm"
-      );
-      setFormattedDate(formattedDateTime);
+      // const formattedDateTime = format(
+      //   new Date(data.last_update),
+      //   "dd/MM/yyyy HH:mm"
+      // );
+      // setFormattedDate(formattedDateTime);
     }
   },[data]);
 
@@ -62,7 +63,7 @@ const MachineDescription = () => {
           <InfoCard
             data={data}
             calidad={calidad}
-            formattedDate={formattedDate}
+            // formattedDate={formattedDate}
             getClassByValue={getClassByValue}
             getClassForCalidad={getClassForCalidad}
           />

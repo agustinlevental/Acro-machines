@@ -48,7 +48,7 @@ const IndicatorItem = ({ label, value, className }) => {
   );
 };
 
-const Indicators = ({ machineItem }) => {
+const Indicators = ({ machine }) => {
   const commonProps = (label, value) => ({
     label,
     value,
@@ -58,8 +58,7 @@ const Indicators = ({ machineItem }) => {
   });
 
   const isPulverizadora =
-    machineItem.type === "Pulverizadora" ||
-    machineItem.class === "Pulverizadora";
+  machine.type === "Pulverizadora" 
 
   return (
     <div className={styles.indicadores}>
@@ -69,13 +68,13 @@ const Indicators = ({ machineItem }) => {
             <IndicatorItem
               {...commonProps(
                 "Taponamiento",
-                machineItem?.indicators[0]?.taponamiento
+                machine.taponamiento
               )}
             />
             <IndicatorItem
               {...commonProps(
                 "Evaporación",
-                machineItem?.indicators[0]?.evaporacion
+                machine.evaporacion
               )}
             />
           </div>
@@ -83,11 +82,11 @@ const Indicators = ({ machineItem }) => {
             <IndicatorItem
               {...commonProps(
                 "Perdida p. viento",
-                machineItem?.indicators[0]?.deriva
+                machine.deriva
               )}
             />
             <IndicatorItem
-              {...commonProps("Calidad", machineItem?.indicators[0]?.calidad)}
+              {...commonProps("Calidad", machine.calidad)}
             />
           </div>
         </div>
@@ -100,27 +99,26 @@ const Indicators = ({ machineItem }) => {
               </div>
               <div className={styles.indicadorValue}>
                 <p className={styles.valueBoldCosechadora}>
-                  {machineItem?.indicators[0]?.cultivo ||
-                    machineItem?.data?.indicators[0]?.cultivo}
+                  {machine.cultivo }
                 </p>
               </div>
             </div>
             <IndicatorItem
               {...commonProps(
                 "Humedad grano",
-                machineItem?.indicators[0]?.humedadGrano
+                machine.humedadGrano
               )}
             />
           </div>
           <div className={styles.row}>
             <IndicatorItem
               label="Rinde húmedo"
-              value={machineItem?.indicators[0]?.rindeHumedo}
+              value={machine.rindeHumedo}
               className={`${styles.rectangle} ${styles.moving}`}
             />
             <IndicatorItem
               label="Rinde seco"
-              value={machineItem?.indicators[0]?.rindeSeco}
+              value={machine.rindeSeco}
               className={`${styles.rectangle} ${styles.rindeSeco}`}
             />
           </div>

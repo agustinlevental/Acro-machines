@@ -1,6 +1,7 @@
-export const FIRSTBREACK= 0.0;
-  export const SECONDBREACK =0.1;
-  export const THIRDBREACK=0.2;
-  export const FOURTHBREACK=0.35;
-  export const FIFTHBREACK=0.5;
-  export const SIXTBREACK=1.0;
+// Constants for breakpoints
+export const FIRSTBREACK = 2.0; // Low
+export const SECONDBREACK = 4.0; // Moderate
+export const THIRDBREACK = 6.0; // High
+export const FOURTHBREACK = 10.0; // Very High
+export const FIFTHBREACK = 12.0; // Critical
+export const SIXTBREACK = 15.0; // Extreme

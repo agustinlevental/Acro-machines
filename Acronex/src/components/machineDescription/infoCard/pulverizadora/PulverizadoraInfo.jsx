@@ -4,12 +4,13 @@ import cardStyles from "../../../card/card.module.css";
 import styles from "../../machineDescription.module.css"; 
 
 function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad }) {
+ 
   return (
     <div>
       <div className={cardStyles.row}>
         <div
           className={`${styles.rectangle} ${getClassByValue(
-            data.data.indicadores.taponamiento
+            data.taponamiento
           )}`}
         >
           <div className={cardStyles.indicadorName}>
@@ -17,14 +18,14 @@ function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad 
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBold}>
-              {Math.floor(data.data.indicadores.taponamiento * 100)}%
+              {data.taponamiento}%
             </p>
           </div>
         </div>
 
         <div
           className={`${styles.rectangle} ${getClassByValue(
-            data.data.indicadores.evaporacion
+             data.evaporacion
           )}`}
         >
           <div className={cardStyles.indicadorName}>
@@ -32,7 +33,7 @@ function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad 
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBold}>
-              {Math.floor(data.data.indicadores.evaporacion * 100)}%
+              {Math.floor( data.evaporacion)}%
             </p>
           </div>
         </div>
@@ -40,7 +41,7 @@ function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad 
       <div className={cardStyles.row}>
         <div
           className={`${styles.rectangle} ${getClassByValue(
-            data.data.indicadores.deriva
+             data.deriva
           )}`}
         >
           <div className={cardStyles.indicadorName}>
@@ -48,7 +49,7 @@ function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad 
           </div>
           <div className={cardStyles.indicadorValue}>
             <p className={cardStyles.valueBold}>
-              {Math.floor(data.data.indicadores.deriva * 100)}%
+              {Math.floor( data.deriva )}%
             </p>
           </div>
         </div>
@@ -60,7 +61,7 @@ function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad 
           <div className={cardStyles.indicadorName}>
             <p
               className={`${cardStyles.cardTitle} ${
-                calidad < 100 ? cardStyles.blackCalidad : ""
+               ""
               }`}
             >
               Calidad
@@ -72,7 +73,7 @@ function PulverizadoraInfo({ data, getClassByValue, calidad, getClassForCalidad 
                 calidad < 100 ? cardStyles.blackCalidad : ""
               }`}
             >
-              {calidad}%
+              {data.calidad}%
             </p>
           </div>
         </div>
