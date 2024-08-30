@@ -7,43 +7,22 @@ import {
 const IndicatorItem = ({ label, value, className }) => {
   const isHumedadGrano = label === "Humedad grano";
   const isRindeSeco = label === "Rinde seco";
-
+  const isCalidad = label === "Calidad";
   return (
-    <div className={`${styles.rectangle} ${label !== "Calidad" ? className : getClassForCalidad(value)}`}>
+    <div className={`${styles.rectangle} `}>
       <div className={styles.indicadorName}>
-        <p
-          className={`${
-            label !== "Calidad" && !isHumedadGrano && !isRindeSeco
-              ? styles.cardTitle
-              : styles.cardTitleCosechadora
-          }`}
-        >
-          {label}
-        </p>
+        <p className={`${styles.cardTitle}`}>{label}</p>
       </div>
       <div className={styles.indicadorValue}>
-        {label !== "Rinde húmedo" && label !== "Rinde seco" ? (
-          <>
-            <p
-              className={`${
-                label !== "Calidad" && !isHumedadGrano
-                  ? styles.valueBold
-                  : styles.valueBoldCosechadora
-              }`}
-            >
-              {value}%
-            </p>
-          </>
-        ) : (
-          <p
-            className={`${
-              isRindeSeco ? styles.valueBoldCosechadora : styles.valueBold
-            }`}
-          >
-            {value}
-          </p>
-        )}
+      <p className={`${styles.valueBoldCosechadora} ${
+  label !== "Rinde húmedo" && label !== "Rinde seco" ? getClassByValue(value) :
+  styles.rinde
+} ${isCalidad ? getClassForCalidad(value) : ""}`}
+>
+  {value}
+</p>
       </div>
+   
     </div>
   );
 };
@@ -56,9 +35,9 @@ const Indicators = ({ machine }) => {
       ? getClassByValue(value)
       : getClassForCalidad(value)
   });
+  
 
-  const isPulverizadora =
-  machine.type === "Pulverizadora" 
+  const isPulverizadora = machine.type === "Pulverizadora";
 
   return (
     <div className={styles.indicadores}>
@@ -66,48 +45,27 @@ const Indicators = ({ machine }) => {
         <div>
           <div className={styles.row}>
             <IndicatorItem
-              {...commonProps(
-                "Taponamiento",
-                machine.taponamiento
-              )}
+              {...commonProps("Taponamiento", machine.taponamiento)}
             />
             <IndicatorItem
-              {...commonProps(
-                "Evaporación",
-                machine.evaporacion
-              )}
+              {...commonProps("Evaporación", machine.evaporacion)}
             />
           </div>
           <div className={styles.row}>
             <IndicatorItem
-              {...commonProps(
-                "Perdida p. viento",
-                machine.deriva
-              )}
+              {...commonProps("Perdida p. viento", machine.deriva)}
             />
-            <IndicatorItem
-              {...commonProps("Calidad", machine.calidad)}
-            />
+            <IndicatorItem {...commonProps("Calidad", machine.calidad)} />
           </div>
         </div>
       ) : (
         <div>
           <div className={styles.row}>
-            <div className={styles.rectangle}>
-              <div className={styles.indicadorName}>
-                <p className={styles.cardTitleCosechadora}>Tipo de cultivo</p>
-              </div>
-              <div className={styles.indicadorValue}>
-                <p className={styles.valueBoldCosechadora}>
-                  {machine.cultivo }
-                </p>
-              </div>
-            </div>
             <IndicatorItem
-              {...commonProps(
-                "Humedad grano",
-                machine.humedadGrano
-              )}
+              {...commonProps("Tipo de cultivo", machine.cultivo)}
+            />
+            <IndicatorItem
+              {...commonProps("Humedad grano", machine.humedadGrano)}
             />
           </div>
           <div className={styles.row}>

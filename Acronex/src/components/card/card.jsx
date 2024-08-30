@@ -24,7 +24,7 @@ const Card = ({ machine }) => {
           ></div>
           <div className={styles.nameAndDetail}>
             <p className={`${styles.truncateText}`}>
-              {`(${machine.id}) ${machine.description}`}
+              {` ${machine.description}`}
             </p>
             <p>
               <span className={styles["blue-text"]}>{`${machine.company}`}</span>

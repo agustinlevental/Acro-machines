@@ -56,7 +56,7 @@
     font-weight: bold;
     font-size: 12px;
     white-space: nowrap;
-    color: white; 
+    color: dimgray; 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
   .cardTitleCosechadora{
@@ -111,7 +111,8 @@
     display: flex;
     flex-direction: column;
     margin: 10px;
-    background-color: lightgray;
+    /* background-color: wheat; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s, transform 0.3s;
     cursor: pointer;
   }
@@ -123,38 +124,39 @@
   }
   
   .firstBreack {
-    background-color: #008000 !important;
+    color: #008000 !important;
   }
   
   .secondBreack {
-    background-color: #ffff00  !important;
+    color: #ffff00  !important;
   }
   
   .thirdBreack {
-    background-color: #ffa500  !important;
+    color: #ffa500  !important;
   }
   
   .fourthBreack {
-    background-color: #ff0000  !important;
+    color: #ff0000  !important;
   }
   
   .fifthBreack {
-    background-color: #8b0000  !important;
+    color: #8b0000  !important;
   }
   
   .sixthBreack {
-    background-color: #8b0000  !important;
+    color: #8b0000  !important;
   }
 
   .regularBreack {
-    background-color: #e4e4e4  !important;
+    color: #e4e4e4  !important;
   }
 
-  .rindeSeco{
-    background-color: #B3D838 !important;
+  .rinde{
+    color: #B3D838 !important;
   }
  
   .indicadorName {
+    color:dimgray;
     height: 20%; 
     margin-top: 5px;
     display: flex;
@@ -169,5 +171,3 @@
     justify-content: center;
   }
 
- 
-  
